@@ -649,7 +649,6 @@ body {
   overflow: hidden;
   position: relative;
   min-height: 100%;
-  
 }
 .wrapper-images {
   background-image: url(../images/bg-image.jpg);
@@ -842,7 +841,6 @@ table {
 .container {
   margin-right: auto;
   margin-left: auto;
-  /* height: 2000px; */
   padding-left: 15px;
   padding-right: 15px;
   position: relative;
@@ -2607,7 +2605,8 @@ input[type="button"].btn-block {
   background-color: #fafafa;
   background-image: url(../images/components/price-pattern.jpg);
   background-repeat: repeat;
-  height: 250px;
+  overflow: hidden;
+  margin-top: 60px;
 }
 .select-area {
   background-color: #f5f5f5;
@@ -5292,8 +5291,7 @@ ul#navigation li.mega-menu__nav-item:hover:before {
   margin-top: 20px;
 }
 .movie .movie__describe {
-  font-size: 20px;
-  color: grey;
+  font-size: 13px;
 }
 .movie .movie__media {
   padding: 20px 5px;
