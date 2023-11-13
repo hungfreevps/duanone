@@ -1,50 +1,40 @@
 <?php
     include "model/pdo.php";
     include "model/taikhoan.php";
-    include "model/sanpham.php";
-    include "model/binhluan.php";
-    include "global.php";
-
-    $phimhome=loadall_sanpham_home();
-    $phimtop=loadall_sanpham_top();
 
     include "view/header.php";
-    if(isset($_GET['act'])&&($_GET['act'])){
+    include "global.php";
+    if(isset($_GET['act'])&&($_GET['act']!="")){
         $act=$_GET['act'];
-        switch ($act) {
-            case 'dangnhap':
-                include "view/login/dangnhap.php";
-                break;
-            
-            case 'dangky':
-                if(isset($_POST['dangky'])&&($_POST['dangky'])){
-                    $user=$_POST['user'];
-                    $email=$_POST['email'];
-                    $pass=$_POST['pass'];
-                    
-                    insert_taikhoan($user, $email, $pass);
-                    $thongbao="Đăng ký thành công";
-                    
+        switch($act){
+            case "dangky":
+                if(isset($_POST['submit']) && ($_POST['submit']!="")){
+                        $tentaikhoan = $_POST['tentaikhoan'];
+                        $sdt = $_POST['sdt'];
+                        $email = $_POST['email'];
+                        $password = $_POST['password'];
+                        insert_taikhoan($tentaikhoan,$sdt,$email,$password);
+                        $thongbao="Đăng ký thành công";
                 }
-                include "view/login/dangki.php";
+                include "dangky.php";
                 break;
-            case 'sanphamct':
-                
-                if(isset($_GET['idsp']) && ($_GET['idsp'] > 0)){
-                    $id=$_GET['idsp'];
-                    $onesp=loadone_sanpham($id);
-                    $binhluan=load_binhluan($id);
-                    include "view/sanphamct.php";
-                }else{
-                    include "view/home.php";
+            case "dangnhap": 
+                if (isset($_POST['submit'])) {
+                    $loginMess = dangnhap($_POST['user-email'], $_POST['user-password']);
+                    include "view/footer.php";
+                    alert('Xin chào! Đây là thông báo từ .');
                 }
-                
                 break;
-        }
+            case "quenmk":
+                if (isset($_POST['guiemail'])) {
+                    $email = $_POST['email'];
+                    $sendMailMess = sendMail($email);
+                }
+                include "view/login/quenmk.php";
+                break;
+        }        
     }else{
-        include "view/home.php";
-    }
-    
+            include "view/home.php";
+        }
     include "view/footer.php";
-
 ?>

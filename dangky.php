@@ -115,15 +115,15 @@
         </div>
         
         <!-- Main content -->
-                <form id="login-form" class="login" method='get' novalidate=''>
+                <form id="login-form" class="login" method='POST' novalidate='' action="dangki.php">
                     <p class="login__title">đăng ký <br></p>
 
                     
                     <div class="field-wrap">
-                    <input type='text' placeholder='Name' name='user-name' class="login__input">
-                    <input type='email' placeholder='Email' name='user-email' class="login__input">
-                    <input type='password' placeholder='Password' name='user-password' class="login__input">
-                    <input type='text' placeholder='Số điện thoại' name='user-sdt' class="login__input" maxlength="10" id="sdt">
+                    <input type='text' placeholder='Name' name='tentaikhoan' class="login__input">
+                    <input type='email' placeholder='Email' name='email' class="login__input">
+                    <input type='password' placeholder='Password' name='password' class="login__input">
+                    <input type='text' placeholder='Số điện thoại' name='sdt' class="login__input" maxlength="10" id="sdt">
 
                     <!-- <input type='checkbox' id='#informed' class='login__check styled'>
                     <label for='#informed' class='login__check-info'>remember me</label> -->
@@ -134,7 +134,7 @@
                         <!-- <a href="#" class="login__tracker form__tracker">Forgot password?</a> -->
                     </div>
                 </form>
-        
+
         <div class="clearfix"></div>
     </div>
 
