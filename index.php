@@ -19,12 +19,7 @@
                 include "dangky.php";
                 break;
             case "dangnhap": 
-                if (isset($_POST['submit'])) {
-                    $loginMess = dangnhap($_POST['user-email'], $_POST['user-password']);
-                    include "view/footer.php";
-                    alert('Xin chào! Đây là thông báo từ .');
-                }
-                break;
+                
             case "quenmk":
                 if (isset($_POST['guiemail'])) {
                     $email = $_POST['email'];
