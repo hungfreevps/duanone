@@ -11,7 +11,7 @@ if((isset($_GET['act'])) && ($_GET['act']!="")){
             break;
 
         case "phim":
-            include "../admin/phim.php";
+            include "../admin/sanpham/list.php";
             break;
 
         case "binhluan": 
