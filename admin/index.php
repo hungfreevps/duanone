@@ -1,6 +1,7 @@
 <?php
 include "../admin/header.php";
 include "../model/pdo.php";
+include "../model/sanpham.php";
 
 
 if((isset($_GET['act'])) && ($_GET['act']!="")){
@@ -10,7 +11,11 @@ if((isset($_GET['act'])) && ($_GET['act']!="")){
             include "../admin/theloai.php";
             break;
 
-        case "phim":
+        case "listsp":
+            if(isset($_GET['']) && $_GET['']){
+
+            }
+            $listsanpham = loadall_sanpham();
             include "../admin/sanpham/list.php";
             break;
 
@@ -23,6 +28,7 @@ if((isset($_GET['act'])) && ($_GET['act']!="")){
             break;
     }
 } else {
+    $listsanpham = loadall_sanpham();
     include "../admin/home.php";
 }
 include "../admin/footer.php";

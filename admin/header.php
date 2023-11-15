@@ -55,7 +55,7 @@
                     <ul id="navigation">
                         <li>
                             <span class="sub-nav-toggle plus"></span>
-                            <a href="#">Trang Chủ</a>
+                            <a href="?act=">Trang Chủ</a>
                         </li>
 
                         <li>
@@ -63,14 +63,9 @@
                             <a href="#">Quản Lý Thể Loại</a>
                         </li>
 
-                        <!-- <li>
-                            <span class="sub-nav-toggle plus"></span>
-                            <a href="#">Booking steps</a>
-                        </li> -->
-
                         <li>
                             <span class="sub-nav-toggle plus"></span>
-                            <a href="#">Quản Lý Phim</a>
+                            <a href="?act=listsp">Quản Lý Phim</a>
                         </li>
 
                         <li>
