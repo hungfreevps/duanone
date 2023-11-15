@@ -1,19 +1,25 @@
 <?php
-    function loadall_sanpham_home(){
-        $sql="select * from phim where 1 order by id desc limit 0,9";
-        $listphim=pdo_query($sql);
-        return $listphim;
+function loadall_sanpham($kyw="",$iddm=0){
+    $sql = "SELECT * FROM phim ";
+    if($kyw!=""){
+        $sql.=" and name like '%".$kyw."%' ";
     }
-
-    function loadall_sanpham_top(){
-        $sql="select * from phim where 1 order by luotxem desc limit 0,10";
-        $listphim=pdo_query($sql);
-        return $listphim;
+    if($iddm!=""){
+        $sql.=" and name like '%".$iddm."%' ";
     }
-
-    function loadone_sanpham($id){
-        $sql="select * from phim where id=".$id;
-        $phimsp=pdo_query_one($sql);
-        return $phimsp;
-    }
+    $sql.=" order by id desc";
+    $listsanpham = pdo_query($sql);
+    return $listsanpham;
+}
+function loadall_danhmuc($iddm){
+        if($iddm>0){
+            $sql = "SELECT * FROM danhmuc where id=".$iddm;
+            $dm = pdo_query_one($sql);
+            extract($dm);
+            return $name;
+        } else{
+            return "";
+        }
+        
+}
 ?>
