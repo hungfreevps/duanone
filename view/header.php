@@ -16,18 +16,24 @@
     
     <!-- Fonts -->
         <!-- Font awesome - icon font -->
-        <link href="../netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+        <link href="netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
         <!-- Roboto -->
         <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
         <!-- Open Sans -->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:800italic' rel='stylesheet' type='text/css'>
     
     <!-- Stylesheets -->
+        <!-- jQuery UI --> 
+        <link href="../code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" rel="stylesheet">
 
         <!-- Mobile menu -->
         <link href="css/gozha-nav.css" rel="stylesheet" />
         <!-- Select -->
         <link href="css/external/jquery.selectbox.css" rel="stylesheet" />
+        <!-- Swiper slider -->
+        <link href="css/external/idangerous.swiper.css" rel="stylesheet" />
+        <!-- Magnific-popup -->
+        <link href="css/external/magnific-popup.css" rel="stylesheet" />
 
         <!-- REVOLUTION BANNER CSS SETTINGS -->
         <link rel="stylesheet" type="text/css" href="rs-plugin/css/settings.css" media="screen" />
@@ -38,6 +44,8 @@
 
         <!-- Modernizr --> 
         <script src="js/external/modernizr.custom.js"></script>
+        <script src="https://kit.fontawesome.com/509cc166d7.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --> 
     <!--[if lt IE 9]> 
@@ -57,7 +65,7 @@
         <header class="header-wrapper header-wrapper--home">
             <div class="container">
                 <!-- Logo link-->
-                <a href='index.html' class="logo">
+                <a href='index.php' class="logo">
                     <img alt='logo' src="images/logo.png">
                 </a>
                 
@@ -76,7 +84,7 @@
                     <ul id="navigation">
                         <li>
                             <span class="sub-nav-toggle plus"></span>
-                            <a href="#">Trang Chủ</a>
+                            <a href="index.php">Trang Chủ</a>
                         </li>
 
                         <li>
@@ -98,14 +106,7 @@
                             <span class="sub-nav-toggle plus"></span>
                             <a href="#">Mới</a>
                         </li>
-                        <li>
-                            <span class="sub-nav-toggle plus"></span>
-                            <a href="#">Login</a>
-                            <ul class="auth__function">
-                                <li><a href="#" class="auth__function-item login-window">đăng nhập</a></li>
-                                <li><a href="dangky.php" class="auth__function-item">đăng ký</a></li>
-                            </ul>
-                        </li>
+                        
 
                         <!-- <li>
                             <span class="sub-nav-toggle plus"></span>
@@ -116,19 +117,35 @@
                 
                 <!-- Additional header buttons / Auth and direct link to booking-->
                 <div class="control-panel">
-                    <div class="auth auth--home">
-                      <div class="auth__show">
-                        <span class="auth__image">
-                          <img alt="" src="images/client-photo/auth.png">
-                        </span>
-                      </div>
-                      <a href="#" class="btn btn--sign btn--singin">
-                          me
-                      </a>
-                        
 
-                    </div>
-                    <a href="#" class="btn btn-md btn--warning btn--book btn-control--home login-window">Đặt Vé</a>
+                    <?php
+                    
+                    if(isset($_SESSION["user"])){
+                        echo '
+                            <div class="btn btn-md btn--warning btn--book btn-control--home">
+                            <span>
+                            <a href="index.php?act=dangnhap" class="">'.$_SESSION['user'].'</a>
+                            </span>
+                            </div>
+                        ';
+                        echo '<a href="index.php?act=dangxuat" class="btn btn-md btn--warning btn--book btn-control--home">Đăng xuất</a>';
+                    }else{
+                        echo '
+                            <div class="btn btn-md btn--warning btn--book btn-control--home">
+                            <span>
+                            <a href="index.php?act=dangnhap" class="">Đăng Nhập</a>
+                            </span>
+                            </div>
+                        ';
+                        echo '<a href="index.php?act=dangnhap" class="btn btn-md btn--warning btn--book btn-control--home">Đặt Vé</a>';
+                    }
+                    ?>
+                            
+
+
+
+                    
+                    
                 </div>
 
             </div>
