@@ -28,7 +28,7 @@
                     <td>'.$ngaychieu.'</td>
                     <td>'.$giochieu.'</td>
                     <td>'.$namphathanh.'</td>
-                    <td>'.$theloai.'</td>
+                    <td>'.$name.'</td>
                 </tr>';
                 }
             ?>

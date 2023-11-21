@@ -1,7 +1,22 @@
 <br><br><br><br><br><br>
 <div class="container" style="width: 80%; margin: 0 auto;">
 <h3>QUẢN LÝ PHIM</h3>
+<div class="inputdata">
+                <label for="theloai">theloai</label>
+                <select name="idtl" id="">
+                    <?php
+                    foreach ($listtheloai as $theloai){
+                    extract($theloai);
+                    echo "
+                    <option value='".$idtl."'>".$name."</option>
+                    ";
+                
+                }
+                    ?>
+                </select>
+            </div>
 <div class="container-home">
+
 
 <table class="table-left-sp" border="1">
             <tr class="">
@@ -35,14 +50,13 @@
                     <td>'.$ngaychieu.'</td>
                     <td>'.$giochieu.'</td>
                     <td>'.$namphathanh.'</td>
-                    <td>'.$id_the.'</td>
+                    <td>'.$name.'</td>
 
                     <td>'.$tacgia.'</td>
                     <td>'.$mota.'</td>
                     <td>'.$quocgia.'</td>
                     <td>'.$luotxem.'</td>
                     <td>'.$hinhpath.'</td>
-                    <td>hionh</td>
                     <td><a href=""><input type="button" value="Sửa"> </a>   
                     <a href="#"><input type="button" value="Xóa" onclick="return confirm(\'Bạn có chắc chắn muốn xóa\')" > </a></td>
 

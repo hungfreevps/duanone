@@ -1,7 +1,8 @@
+<br><br><br><br><br><br>
 <div class="container">
-    <h3>Them The Loai Phim</h3>
+    <h3>THÊM THỂ LOẠI</h3>
     <div class="container-home">
-        <form action="index.php?act=addtheloai" method="post">
+        <form action="index.php?act=themtheloai" method="post">
             <label for="tenloai">TÊN THỂ LOẠI</label>
             <input type="text" name="tenloai">
 
