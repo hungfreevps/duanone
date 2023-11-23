@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include "../admin/header.php";
 include "../model/pdo.php";
 include "../model/sanpham.php";
@@ -22,6 +23,7 @@ if((isset($_GET['act'])) && ($_GET['act']!="")){
                 } else{
                     $addgio = themgio($giochieu);
                     $thongbao = "Thêm thành công";
+                    header('location: index.php?act=danhmuc');
                 }
             }
             include "../admin/giochieu/add.php";
@@ -36,6 +38,8 @@ if((isset($_GET['act'])) && ($_GET['act']!="")){
                 } else{
                     $addnam = themnam($nam);
                     $thongbao = "Thêm thành công";
+                    header('location: index.php?act=danhmuc');
+
                 }
             }
             include "../admin/nam/add.php";
@@ -50,6 +54,8 @@ if((isset($_GET['act'])) && ($_GET['act']!="")){
                 } else{
                     $addngaychieu = themngaychieu($ngaychieu);
                     $thongbao = "Thêm thành công";
+                    header('location: index.php?act=danhmuc');
+
                 }
             }
             include "../admin/ngaychieu/add.php";
@@ -64,6 +70,8 @@ if((isset($_GET['act'])) && ($_GET['act']!="")){
                 } else{
                     $addtacgia = themtacgia($tentacgia);
                     $thongbao = "Thêm thành công";
+                    header('location: index.php?act=danhmuc');
+
                 }
             }
             include "../admin/tacgia/add.php";
@@ -78,6 +86,8 @@ if((isset($_GET['act'])) && ($_GET['act']!="")){
                 } else{
                     $addquocgia = themquocgia($tenquocgia);
                     $thongbao = "Thêm thành công";
+                    header('location: index.php?act=danhmuc');
+
                 }
             }
             include "../admin/quocgia/add.php";
@@ -105,7 +115,10 @@ if((isset($_GET['act'])) && ($_GET['act']!="")){
                 if(empty($tenloai)){
                     $thongbao = "Không được để trống";
                 } else{
+                    $addtheloai = themtheloai($tenloai);
                     $thongbao = "Thêm thành công";
+                    header('location: index.php?act=danhmuc');
+
                 }
             }
             include "../admin/theloai/add.php";
@@ -123,39 +136,97 @@ if((isset($_GET['act'])) && ($_GET['act']!="")){
             break;
             //san pham
         case "listsp":
-
-            $listtheloai = loadtheloai();
-            $listsanpham = loadall_sanpham($kyw="");
+            $listsanpham = loadall_sanpham();
             include "../admin/sanpham/list.php";
             break;
         
-        case 'addsp':
+        case 'themsp':
             if(isset($_POST['themmoi']) && $_POST['themmoi']){
                 $tenphim = $_POST['tenphim'];
-                $ngaychieu = $_POST['ngaychieu'];
-                $giochieu = $_POST['giochieu'];
-                $namphim = $_POST['namphim'];
+                $id_ngaychieu = $_POST['idnc'];
+                $id_giochieu = $_POST['idgc'];
+                $id_namphathanh = $_POST['idnph'];
                 $sao = $_POST['sao'];
-                $tacgia = $_POST['tacgia'];
+                $id_tacgia = $_POST['idtg'];
                 $mota = $_POST['mota'];
-                $quocgia = $_POST['quocgia'];
-                $id_theloai = $_POST['id'];
+                $id_quocgia = $_POST['idqg'];
+                $id_theloai = $_POST['idtl'];
+                $thoiluong = $_POST['thoiluong'];
 
 
                 $hinh = $_FILES['hinh']['name'];
-                $duongdan = "../upload";
+                $duongdan = "../upload/";
                 $duongdanfile = $duongdan.basename($_FILES['hinh']['name']);
                 move_uploaded_file($_FILES['hinh']['tmp_name'], $duongdanfile);
-                themsanpham($tenphim, $ngaychieu, $giochieu, $namphim, $sao, $tacgia, $mota, $quocgia, $hinh, $id_the);
+                themsanpham($tenphim, $id_ngaychieu, $id_giochieu, $id_namphathanh, $sao, $id_tacgia, $mota, $id_quocgia, $hinh, $id_theloai,$thoiluong);
                 $thongbao = "Them ok";
-
+                header('location: index.php?act=listsp');
             }
+            $listtacgia = loadtacgia();
+            $listgiochieu = loadgiochieu();
+            $listngaychieu = loadngaychieu();
             $listtheloai = loadtheloai();
-
-
+            $listquocgia = loadquocgia();
+            $listnamphathanh = loadnamphathanh();
             include "../admin/sanpham/add.php";
             break;
-        case 'suasp':
+        case 'suasp':     
+            if (isset($_GET['idphim']) && $_GET['idphim']>0){
+                $sanpham = loadone_sanpham($_GET['idphim']);
+            }
+            $listtacgia = loadtacgia();
+            $listgiochieu = loadgiochieu();
+            $listngaychieu = loadngaychieu();
+            $listtheloai = loadtheloai();
+            $listquocgia = loadquocgia();
+            $listnamphathanh = loadnamphathanh();
+            include "../admin/sanpham/update.php";
+            break;
+        case 'updatesp':
+            if(isset($_POST['capnhat']) && $_POST['capnhat']){
+                $idphim = $_POST['idphim'];
+                $tenphim = $_POST['tenphim'];
+                $id_ngaychieu = $_POST['idnc'];
+                $id_giochieu = $_POST['idgc'];
+                $id_namphathanh = $_POST['idnph'];
+                $sao = $_POST['sao'];
+                $id_tacgia = $_POST['idtg'];
+                $mota = $_POST['mota'];
+                $id_quocgia = $_POST['idqg'];
+                $id_theloai = $_POST['idtl'];
+                $thoiluong = $_POST['thoiluong'];
+
+                $hinh = $_FILES['hinh']['name'];
+                $duongdan = "../upload/";
+                $duongdanfile = $duongdan.basename($_FILES['hinh']['name']);
+                move_uploaded_file($_FILES['hinh']['tmp_name'], $duongdanfile);
+                $thongbao = "Them ok";
+                update_sanpham($tenphim, $id_ngaychieu, $id_giochieu, $id_namphathanh, $sao, $id_tacgia, $mota, $id_quocgia, $hinh, $id_theloai,$thoiluong,$idphim);                
+                $thongbao = "cap nhat thanh congah";
+
+            }
+            $listtacgia = loadtacgia();
+            $listgiochieu = loadgiochieu();
+            $listngaychieu = loadngaychieu();
+            $listtheloai = loadtheloai();
+            $listquocgia = loadquocgia();
+            $listnamphathanh = loadnamphathanh();
+            $listsanpham = loadall_sanpham();
+            include "../admin/sanpham/list.php";
+            break;
+        case 'xoasp':
+            if(isset($_GET['idphim'])){
+               xoasp($_GET['idphim']);
+               header('location: index.php?act=listsp');
+            }
+
+
+            break;
+        case 'xoaspall':
+            xoaallsp();
+            include "../admin/sanpham/list.php";
+            break;
+
         case "binhluan": 
             include "../admin/binhluan.php";
             break;
@@ -169,4 +240,5 @@ if((isset($_GET['act'])) && ($_GET['act']!="")){
     include "../admin/home.php";
 }
 include "../admin/footer.php";
+ob_end_flush();
 ?>

@@ -1,7 +1,14 @@
 <br><br><br><br><br><br>
 <div class="container" style="width: 80%; margin: 0 auto;">
 <h3>QUẢN LÝ PHIM</h3>
+
 <div class="container-home">
+    <style>
+        th,td{
+            min-width: 200px;
+            min-height: 1%;
+        }
+    </style>
         <!-- <div class="table-admin"> -->
             <table class="table-left-sp" border="1">
             <tr class="">

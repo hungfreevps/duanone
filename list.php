@@ -38,7 +38,6 @@
                 foreach ($listsanpham as $phim){
                     extract($phim);
                     $suasp = "index.php?act=suasp&idphim=".$idphim;
-                    $xoasp = "index.php?act=xoasp&idphim=".$idphim;
                     $duongdan = "../upload/".$img;
                     if(is_file($duongdan)){
                         $duongdan = "<img src =".$duongdan." width = '100px'>";
@@ -60,13 +59,13 @@
                     <td>'.$thoiluong.'</td>
                     <td>'.$duongdan.'</td>
                     <td><a href="'.$suasp.'"><input type="button" value="Sửa"></a>   
-                    <td><a href="'.$xoasp.'"><input type="button" value="Xóa" onclick="return confirm(\'Bạn có chắc chắn muốn xóa\')" > </a></td>
+                    <a href="#"><input type="button" value="Xóa" onclick="return confirm(\'Bạn có chắc chắn muốn xóa\')" > </a></td>
+
+
+
                 </tr>';
                 }
             ?>
            </table>
-           <a href="?act=themsp"> <input type="button" value="Them"></a>
-           <a href="?act=xoaspall"><input type="button" value="Xóa tat ca" onclick="return confirm(\'Bạn có chắc chắn muốn xóa tất cả không? (Xóa hết toàn bộ dữ liệu và không thể khôi phục))\')" > </a>
-
 </div>
 </div>

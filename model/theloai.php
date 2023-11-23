@@ -1,6 +1,6 @@
 <?php
 function loadtheloai(){
-    $sql = "SELECT * FROM `theloai` WHERE 1";    
+    $sql = "SELECT * FROM `theloai` ORDER BY id DESC";    
     $listtheloai = pdo_query($sql);
     return $listtheloai;
 }

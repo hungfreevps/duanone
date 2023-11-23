@@ -1,58 +1,97 @@
 <br><br><br><br><br><br>
 <div class="container">
     <div class="container-home">
-        <form action="index.php?act=addsp" method="post" enctype="multipart/form-data">
-                        <div class="inputdata">
-                <label for="theloai">theloai</label>
-                <select name="id" id="">
-                <?php
-                    foreach ($listtheloai as $theloai){
-                    extract($theloai);
-                    echo "
-                    <option value='".$id."'>".$name."</option>
-                    ";
-                
-                }
-                    ?>
-                </select>
-            </div>
+        <form action="index.php?act=themsp" method="post" enctype="multipart/form-data">
             <div class="inputdata">
-                <label for="tenphim">Ten Phim</label>
+                <label for="tenphim">Tên phim</label>
                 <input type="text" name="tenphim" id="">
             </div>
             <div class="inputdata">
-                <label for="hinh">hinh</label>
+                <label for="hinh">Hình ảnh</label>
                 <input type="file" name="hinh" id="">
             </div>
             <div class="inputdata">
-                <label for="ngaychieu">ngaychieu</label>
-                <input type="date" name="ngaychieu" id="">
+                <label for="thoiluong">Thời lượng</label>
+                <input type="text" name="thoiluong" id="">
             </div>
             <div class="inputdata">
-                <label for="giochieu">giochieu</label>
-                <input type="text" name="giochieu" id="">
-            </div>
-
-            <div class="inputdata">
-                <label for="namphim">namphathanh</label>
-                <input type="text" name="namphim" id="">
-            </div>
-            <div class="inputdata">
-                <label for="sao">sao</label>
+                <label for="sao">Sao</label>
                 <input type="text" name="sao" id="">
             </div>
             <div class="inputdata">
-                <label for="tacgia">tacgia</label>
-                <input type="text" name="tacgia" id="">
-            </div>
-            <div class="inputdata">
-                <label for="mota">mota</label>
+                <label for="mota">Mô tả</label>
                 <input type="text" name="mota" id="">
             </div>
             <div class="inputdata">
-                <label for="quocgia">quocgia</label>
-                <input type="text" name="quocgia" id="">
+                <label for="">Thể loại</label>
+                <select name="idtl" id="">
+                <?php
+                foreach ($listtheloai as $theloai){
+                    extract($theloai);
+                    echo "
+                    <option value=".$id.">".$theloai."</option>";}
+                ?>
+                </select>
             </div>
+            <div class="inputdata">
+                <label for="">Ngày chiếu</label>
+                <select name="idnc" id="">
+                <?php
+                foreach ($listngaychieu as $ngaychieu){
+                    extract($ngaychieu);
+                    echo "
+                    <option value=".$id.">".$ngaychieu."</option>";}
+                ?>
+                </select>
+            </div>
+            <div class="inputdata">
+                <label for="">Giờ chiếu</label>
+                <select name="idgc" id="">
+                <?php
+                foreach ($listgiochieu as $giochieu){
+                    extract($giochieu);
+                    echo "
+                    <option value=".$id.">".$giochieu."</option>";}
+                ?>
+                </select>
+            </div>
+
+            <div class="inputdata">
+                <label for="">Năm phát hành</label>
+                <select name="idnph" id="">
+                <?php
+                foreach ($listnamphathanh as $namphim){
+                    extract($namphim);
+                    echo "
+                    <option value=".$id.">".$nam."</option>";}
+                ?>
+                </select>
+            </div>
+
+            <div class="inputdata">
+                <label for="">Tác giả</label>
+                <select name="idtg" id="">
+                <?php
+                foreach ($listtacgia as $tacgia){
+                    extract($tacgia);
+                    echo "
+                    <option value=".$id.">".$tacgia."</option>";}
+                ?>
+                </select>
+            </div>
+
+            <div class="inputdata">
+                <label for="">Quốc gia</label>
+                <select name="idqg" id="">
+                <?php
+                foreach ($listquocgia as $quocgia){
+                    extract($quocgia);
+                    echo "
+                    <option value=".$id.">".$quocgia."</option>";}
+                ?>
+                </select>
+            </div>
+
 
             <input type="submit" value="submit" name="themmoi">
         </form>

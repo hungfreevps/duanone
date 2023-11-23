@@ -29,3 +29,8 @@
 td:nth-child(7) {
     width: 100px;
  }
+.container-home tr td{
+    min-height: 200px;
+
+
+}
