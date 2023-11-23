@@ -3,17 +3,21 @@
         <!-- Main content -->
                     
 
-                    <p class="login__tracker"></p>
+                    
                     <form action="index.php?act=dangnhap" method="post" enctype="multipart/form-data">
 
-                    <div id="login-form" class="login">
-                    <p class="login__title">Đăng Nhập</p>
+                        <div id="login-form" class="login">
 
-                    <div class="social social--colored">
+                        <p class="login__title">Đăng Nhập</p>
+                        <?php
+                            if(!isset($_SESSION)){ ?>
+                        
+                        <div class="social social--colored">
                             <a href="#" class="social__variant fa fa-facebook"></a>
                             <a href="#" class="social__variant fa fa-twitter"></a>
                             <a href='#' class="social__variant fa fa-vk"></a>
-                    </div>
+                        </div>
+                        <p class="login__tracker"></p>
 
                         <div class="field-wrap">
                             <!-- <input type="text" placeholder="Tên đăng nhập" name="user" class="login__input"> -->
@@ -32,10 +36,17 @@
                             <a href="index.php?act=dangky" class="login__tracker form__tracker">Tạo tài khoản!</a>
                         </div>
                         </div>
+                        <?php
+                            if(isset($loginMess)&&($loginMess!="")){
+                                echo $loginMess;
+                            }
+                        ?>
                     </form>
                     
                     
-                    
+                    <?php } else {?>
+                        <p>Xin Chào tài khoản <?= $_SESSION['user'] ?></p>
+                        <?php } ?>
         
         
 

@@ -15,13 +15,35 @@
                  <div class="col-sm-12 change--col">
 
                  <?php
+                 $i=0;
                     foreach ($phimtop as $phim) {
                         extract($phim);
+                        print_r($phim);
                         $hinh=$img_path.$img;
-                        echo '<div class="movie-beta__item ">
+                        if(($i==2)||($i==5)||($i==8)){
+                            $mr="";
+                        }else{
+                            $mr="mr";
+                        }
+                        echo '<div class="movie-beta__item '.$mr.'">
                                 <img alt="" src="'.$hinh.'">
-                                <span class="best-rate">'.$sao.'</span>
-                    </div>';
+                                
+
+                                <ul class="movie-beta__info">
+                                    <li><span class="best-voted">'.$luotxem.'</span></li>
+                                    <li>
+
+                                        <p class="movie__time">'.$thoiluong.'</p>
+                                        <p>'.$tacgia.'</p>
+                                        <p>'.$quocgia.'</p>
+                                        <p>'.$giochieu.'</p>
+                                    </li>
+                                    <li class="last-block">
+                                        <a href="#" class="slide__link">more</a>
+                                    </li>
+                                </ul>
+                            </div>';
+                            $i+=1;
                     }
                  ?>
                      
@@ -43,9 +65,8 @@
                         <?php
                             foreach ($phimhome as $phim) {
                                 extract($phim);
-                                print_r($phim);
                                 $hinh=$img_path.$img;
-                                $link="index.php?act=sanphamct&id=".$id;
+                                $link="index.php?act=sanphamct&idsp=".$id;
                                 echo '<div class="movie movie--test movie--test--dark movie--test--left">
                                         <div class="movie__images">
                                             <a href="'.$link.'" class="movie-beta__link">
@@ -56,9 +77,9 @@
                                         <div class="movie__info">
                                             <a href="" class="movie__title">'.$tenphim.'</a>
 
-                                            <p class="movie__time">'.$giochieu.'</p>
-                                            <p class="movie">'.$tacgia.'</p>
-                                            <p class="movie">'.$quocgia.'</p>
+                                            <p class="movie__time">'.$id_giochieu.'</p>
+                                            <p class="movie">'.$id_tacgia.'</p>
+                                            <p class="movie">'.$id_quocgia.'</p>
 
                                         
                                             

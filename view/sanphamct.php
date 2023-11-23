@@ -9,7 +9,8 @@
                     <?php
                         
                         $img=$img_path.$img;
-                        echo '<div class="movie__info">
+                        echo '
+                        <div class="movie__info">
                                 <div class="col-sm-4 col-md-3 movie-mobile">
                                     <div class="movie__images">
                                         <span class="movie__rating">'.$sao.'</span>
@@ -19,13 +20,14 @@
                                 </div>
 
                                 <div class="col-sm-8 col-md-9">
-                                    <p class="movie__time">'.$giochieu.'</p>
+                                    <p class="movie__time">'.$thoiluong.'</p>
 
                                     <p class="movie__option"><strong>Quốc Gia: </strong><a href="#">'.$quocgia.'</a></p>
-                                    <p class="movie__option"><strong>Năm: </strong><a href="#">'.$namphathanh.'</a></p>
+                                    <p class="movie__option"><strong>Năm: </strong><a href="#">'.$nam.'</a></p>
                                     <p class="movie__option"><strong>Thể Loại: </strong><a href="#">'.$theloai.'</a></p>
                                     <p class="movie__option"><strong>Ngày Phát Hành: </strong>'.$ngaychieu.'</p>
                                     <p class="movie__option"><strong>Tác Giả: </strong><a href="#">'.$tacgia.'</a></p>
+                                    <p class="movie__option"><strong>Giờ Chiếu: </strong><a href="#">'.$giochieu.'</a></p>
                                     
                                     
                                     <div class="movie__btns movie__btns--full">
@@ -149,13 +151,20 @@
 
                     <div class="comment-wrapper">
                         <form id="comment-form" class="comment-form" method="post">
-                            <form action="index.php?act=sanphamct&idsp=<?=$id?>" method="post">
+                            <?php
+                                if(isset($_SESSION['user'])){
+                                    echo '<form action="index.php?act=sanphamct&idsp='.$id.'" method="post">
                                 
-                                <!-- <textarea class="comment-form__text" placeholder="Viết bình luận"></textarea> -->
-                                <input type="hidden" name="idpro" value="<?= $id; ?>">
-                                <input type="text" name="noidung" class="comment-form__text">
-                                <input type="submit" value="Đăng" name="guibinhluan" class="btn btn-md btn--danger comment-form__btn">
-                            </form>
+                                    <!-- <textarea class="comment-form__text" placeholder="Viết bình luận"></textarea> -->
+                                    <input type="hidden" name="idpro" value="'.$id.'">
+                                    <input type="text" name="noidung" class="comment-form__text">
+                                    <input type="submit" value="Đăng" name="guibinhluan" class="btn btn-md btn--danger comment-form__btn">
+                                </form>';
+                                }else{
+                                    echo 'Bạn cần đăng nhập để bình luận';
+                                }
+                            ?>
+                            
                             
 
                             <div class="comment-sets">
