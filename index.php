@@ -42,10 +42,10 @@
                     $noidung=$_POST['noidung'];
                     insert_binhluan($idpro,$user['id'],$noidung);
                 }
-                if(isset($_GET['id']) && ($_GET['id'] > 0)){
-                    $id=$_GET['id'];
-                    $onesp=loadone_sanpham($id);
-                    $binhluan=load_binhluan($id);
+                if(isset($_GET['idphim']) && ($_GET['idphim'] > 0)){
+                    $idphim=$_GET['idphim'];
+                    $phimsp=loadone_sanpham($idphim);
+                    $binhluan=load_binhluan($idphim);
                     include "view/sanphamct.php";
                 }else{
                     include "view/home.php";

@@ -3,7 +3,10 @@
             <div class="col-sm-12">
                 <div class="movie">
                     <?php
-                        extract($onesp);
+                    if(is_array($phimsp)){
+                        extract($phimsp);
+                        // print_r($phimsp);
+                    }
                     ?>
                     <h2 class="page-heading"><?php echo $tenphim; ?></h2>
                     <?php
@@ -32,7 +35,7 @@
                                     
                                     <div class="movie__btns movie__btns--full">
                                         <a href="#" class="btn btn-md btn--warning">Đặt vé xem phim</a>
-                                        <a href="#" class="watchlist">Thêm giỏ hàng</a>
+                                        
                                     </div>
                                 </div>
                             </div> 
@@ -66,7 +69,8 @@
 
                     <div class="datepicker">
                       <span class="datepicker__marker"><i class="fa fa-calendar"></i>Date</span>
-                      <input type="text" id="datepicker" value="03/10/2014" class="datepicker__input">
+                      <input type="date" id="datepicker" name="ngaychieu" class="datepicker__input">
+            
                     </div>
 
                     <a href="#" id="map-switch" class="watchlist watchlist--map watchlist--map-full"><span class="show-map">map</span><span  class="show-time">Show cinema time table</span></a>
@@ -87,7 +91,7 @@
                             </ul>
                         </div>
 
-                        <div class="time-select__group">
+                        <!-- <div class="time-select__group">
                             <div class="col-sm-4">
                                 <p class="time-select__place">Địa Điểm 2</p>
                             </div>
@@ -139,7 +143,7 @@
                                 <li class="time-select__item" data-time="21:30">21:30</li>
                                 <li class="time-select__item" data-time="02:20">02:20</li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                     
                     <!-- hiden maps with multiple locator-->

@@ -43,9 +43,9 @@
                         <?php
                             foreach ($phimhome as $phim) {
                                 extract($phim);
-                                print_r($phim);
+                                // print_r($phim);s
                                 $hinh=$img_path.$img;
-                                $link="index.php?act=sanphamct&id=".$id;
+                                $link="index.php?act=sanphamct&idphim=".$idphim;
                                 echo '<div class="movie movie--test movie--test--dark movie--test--left">
                                         <div class="movie__images">
                                             <a href="'.$link.'" class="movie-beta__link">
@@ -54,7 +54,7 @@
                                         </div>
 
                                         <div class="movie__info">
-                                            <a href="" class="movie__title">'.$tenphim.'</a>
+                                            <a href="'.$link.'" class="movie__title">'.$tenphim.'</a>
 
                                             <p class="movie__time">'.$giochieu.'</p>
                                             <p class="movie">'.$tacgia.'</p>

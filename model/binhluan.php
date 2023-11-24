@@ -1,9 +1,9 @@
 <?php
-    function load_binhluan($idsp){
+    function load_binhluan($idphim){
         $sql="SELECT binhluan.noidung,binhluan.ngaybinhluan, taikhoan.user FROM binhluan
                 JOIN taikhoan ON binhluan.iduser = taikhoan.id
-                JOIN phim ON binhluan.idpro = phim.id
-                WHERE phim.id = $idsp; ";
+                JOIN phim ON binhluan.idpro = phim.idphim
+                WHERE phim.idphim = $idphim; ";
 
                 $result = pdo_query($sql);
                 return $result;
