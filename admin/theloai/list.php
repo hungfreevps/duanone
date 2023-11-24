@@ -15,18 +15,20 @@
                 <th>THỂ LOẠI</th>
             </tr>
             <?php
-            $suasp = "index.php?act=sualoai&id=";
+
                 foreach ($listtheloai as $theloai){
                     extract($theloai);
+                    $suasp = "index.php?act=suatheloai&idtl=$id";
                     echo "<tr>
                     <td>".$theloai."</td>
-                    <td><a href=''><input type='button' value='Sửa'> </a>   
+                    <td><a href='".$suasp."'><input type='button' value='Sửa'> </a>   
                     <a href='#'><input type='button'value='Xóa' onclick='return confirm(\'Bạn có chắc chắn muốn xóa\')' > </a></td>
+
                     ";
                 
                 }
             ?>
-
+                    <!-- // <input type='hidden' name='id' value='".$id."'> -->
            </table>
         <!-- </div>   -->
                 <div class="table-giua"></div>

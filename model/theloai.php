@@ -1,6 +1,6 @@
 <?php
 function loadtheloai(){
-    $sql = "SELECT * FROM `theloai` ORDER BY id DESC";    
+    $sql = "SELECT * FROM `theloai` ";    
     $listtheloai = pdo_query($sql);
     return $listtheloai;
 }
@@ -12,9 +12,14 @@ function themtheloai($tenloai){
 }
 
 function sualoai($idtl, $tenloai){
-    $sql= "UPDATE `theloai` SET `id`= $idtl,`name`='$tenloai'";
+    $sql= "UPDATE `theloai` SET `name`='$tenloai' WHERE `id` = $idtl";
     $suatheloai = pdo_query_one($sql);
     return $suatheloai;
 }
 
+function loadonetheloai(){
+    $sql = "SELECT * FROM `theloai`";
+    $theloai = pdo_query_one($sql);
+    return $theloai;
+}
 ?>

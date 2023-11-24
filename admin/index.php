@@ -96,18 +96,21 @@ if((isset($_GET['act'])) && ($_GET['act']!="")){
         
         
             //the loai   
-        case 'updatetheloai':
-
-            include "../admin/theloai/list.php";
-            break;
-        
         case 'suatheloai':
-            if(isset($_GET['id'])&&($_GET['id'] >0)){
-                $id = $_GET['id'];
-                $suatheloai = sualoai($id);
+            if (isset($_GET['idtl']) && $_GET['idtl']>0){
+                $theloai=loadonetheloai($_GET['idtl']);
             }
+            $listtheloai = loadtheloai();
             include "../admin/theloai/update.php";
             break;
+        
+        // case 'suatheloai':
+        //     if(isset($_GET['id'])&&($_GET['id'] >0)){
+        //         $id = $_GET['id'];
+        //         $suatheloai = sualoai($id);
+        //     }
+        //     include "../admin/theloai/update.php";
+        //     break;
  
         case 'themtheloai':
             if(isset($_POST['themmoi']) && $_POST['themmoi']){
