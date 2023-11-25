@@ -20,20 +20,8 @@
                         $hinh=$img_path.$img;
                         echo '<div class="movie-beta__item ">
                                 <img alt="" src="'.$hinh.'">
-                                
-
-                                <ul class="movie-beta__info">
-                                    <li><span class="best-voted">'.$luotxem.'</span></li>
-                                    <li>
-                                        <p class="movie__time">'.$giochieu.'</p>
-                                        <p>'.$tacgia.'</p>
-                                        <p>'.$quocgia.'</p>
-                                    </li>
-                                    <li class="last-block">
-                                        <a href="#" class="slide__link">more</a>
-                                    </li>
-                                </ul>
-                            </div>';
+                                <span class="best-rate">'.$sao.'</span>
+                    </div>';
                     }
                  ?>
                      
@@ -55,8 +43,9 @@
                         <?php
                             foreach ($phimhome as $phim) {
                                 extract($phim);
+                                // print_r($phim);s
                                 $hinh=$img_path.$img;
-                                $link="index.php?act=sanphamct&idsp=".$id;
+                                $link="index.php?act=sanphamct&idphim=".$idphim;
                                 echo '<div class="movie movie--test movie--test--dark movie--test--left">
                                         <div class="movie__images">
                                             <a href="'.$link.'" class="movie-beta__link">
@@ -65,7 +54,7 @@
                                         </div>
 
                                         <div class="movie__info">
-                                            <a href="" class="movie__title">'.$tenphim.'</a>
+                                            <a href="'.$link.'" class="movie__title">'.$tenphim.'</a>
 
                                             <p class="movie__time">'.$giochieu.'</p>
                                             <p class="movie">'.$tacgia.'</p>

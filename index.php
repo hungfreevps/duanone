@@ -40,17 +40,27 @@
                 include "view/home.php";
                 header("location: index.php");
                 break;
-            case 'sanphamct':
-                
-                if(isset($_GET['idsp']) && ($_GET['idsp'] > 0)){
-                    $id=$_GET['idsp'];
-                    $onesp=loadone_sanpham($id);
-                    $binhluan=load_binhluan($id);
+            case 'thongtintk':
+                if(isset($_GET['idtk']) && $_GET['idtk']>0 ){
+                    $taikhoan = thongtintk($_GET['idtk']);
+                };
+                include "view/login/thongtintk.php";
+                break;
+            case 'sanphamct': 
+                if(isset($_POST['guibinhluan'])&&($_POST['guibinhluan'])){
+                    $user=get_user($_SESSION['user']);
+                    $idpro=$_POST['idpro'];
+                    $noidung=$_POST['noidung'];
+                    insert_binhluan($idpro,$user['id'],$noidung);
+                }
+                if(isset($_GET['idphim']) && ($_GET['idphim'] > 0)){
+                    $idphim=$_GET['idphim'];
+                    $phimsp=loadone_sanpham($idphim);
+                    $binhluan=load_binhluan($idphim);
                     include "view/sanphamct.php";
                 }else{
                     include "view/home.php";
                 }
-                
                 break;
         }
     }else{
@@ -59,5 +69,4 @@
     
     include "view/footer.php";
     ob_end_flush();
-
 ?>

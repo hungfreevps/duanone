@@ -117,35 +117,69 @@
                 
                 <!-- Additional header buttons / Auth and direct link to booking-->
                 <div class="control-panel">
-
-                    <?php
-                    
-                    if(isset($_SESSION["user"])){
-                        echo '
-                            <div class="btn btn-md btn--warning btn--book btn-control--home">
-                            <span>
-                            <a href="index.php?act=dangnhap" class="">'.$_SESSION['user'].'</a>
-                            </span>
-                            </div>
-                        ';
-                        echo '<a href="index.php?act=dangxuat" class="btn btn-md btn--warning btn--book btn-control--home">Đăng xuất</a>';
-                    }else{
-                        echo '
-                            <div class="btn btn-md btn--warning btn--book btn-control--home">
-                            <span>
-                            <a href="index.php?act=dangnhap" class="">Đăng Nhập</a>
-                            </span>
-                            </div>
-                        ';
-                        echo '<a href="index.php?act=dangnhap" class="btn btn-md btn--warning btn--book btn-control--home">Đặt Vé</a>';
-                    }
-                    ?>
+                    <style>
+                        .btn {
+                            position: relative;
+                            display: inline-block;
+                        }
+                        .dropdown-menu {
+                            display: none;
+                            position: absolute;
+                            top: 100%;
+                            left: 0;
+                            background-color: gray;
+                            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                            z-index: 1;
+                            min-width: 113px;
+                            padding: 5px 0;
+                            border-bottom-left-radius: 3px;
+                            border-bottom-right-radius: 3px;
+                        }
+                        .btn:hover .dropdown-menu {
+                            display: block;
+                        }
+                        .dropdown-menu a {
+                            color: #b4b1b2;
+                            text-decoration: none;
                             
-
-
-
-                    
-                    
+                            font-size: 11px;
+                        }
+                        .dropdown-menu a:hover{
+                            color: #fff;
+                        }
+                    </style>
+                    <script>
+                        document.getElementById("myButton").addEventListener("click", function() {
+                        var dropdownMenu = this.querySelector(".dropdown-menu");
+                        dropdownMenu.style.display = (dropdownMenu.style.display === "block") ? "none" : "block";
+                        }); 
+                    </script>
+                        <?php
+                        
+                        if(isset($_SESSION["user"])){
+                            echo '
+                                <div style="min-width: 115px;" class="btn btn-md btn--warning btn--book btn-control--home" id="myButton">
+                                    <span>
+                                    '.$_SESSION['user'].'
+                                    </span>
+                                    <div class="dropdown-menu">
+                                        <a href="index.php?act=dangxuat">Đăng xuất</a></br>
+                                        <a href="index.php?act=thongtintk&idtk='.$_SESSION['id'].'">Thông tin tk</a>
+                                    </div>
+                                </div>
+                            ';
+                            echo '<a style="min-width: 115px;" href="#" class="btn btn-md btn--warning btn--book btn-control--home">Đặt vé</a>';
+                        }else{
+                            echo '
+                                <div class="btn btn-md btn--warning btn--book btn-control--home">
+                                <span>
+                                <a href="index.php?act=dangnhap" class="">Đăng Nhập</a>
+                                </span>
+                                </div>
+                            ';
+                            echo '<a style="min-width: 115px;" href="index.php?act=dangnhap" class="btn btn-md btn--warning btn--book btn-control--home">Đặt Vé</a>';
+                        }
+                        ?>
                 </div>
 
             </div>
