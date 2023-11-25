@@ -39,5 +39,15 @@ session_start();
         // print_r($taikhoan);
         return $taikhoan;
     }
+
+    function update_taikhoan($id,$user,$email,$sdt){
+            // $sql="update sanpham set iddm='".$iddm."',name='".$tensp."',price='".$giasp."',mota='".$mota."',img='".$hinh."' where id=".$id;
+        $sql=  "UPDATE `taikhoan` SET `user` = '{$user}', `email` = '{$email}', `sdt` = '{$sdt}' WHERE `taikhoan`.`id` = $id";
+        // pdo_execute($sql);
+        
+        $taikhoan = pdo_query($sql);
+        return $taikhoan;
+    
+    }
     
 ?>

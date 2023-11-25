@@ -9,22 +9,22 @@
         <tr>
             <td>ID: </td>
             <td>'.$id.'</td>
-            <td><a href="">Sửa</a></td>
+            <td><a href="index.php?act=suathongtintk&idtk='.$id.'">Sửa</a></td>
         </tr>
         <tr>
             <td>User: </td>
             <td>'.$user.'</td>
-            <td><a href="">Sửa</a></td>
+            <td><a href="index.php?act=suathongtintk&idtk='.$id.'">Sửa</a></td>
         </tr>
         <tr>
             <td>Email: </td>
             <td>'.$email.'</td>
-            <td><a href="">Sửa</a></td>
+            <td><a href="index.php?act=suathongtintk&idtk='.$id.'">Sửa</a></td>
         </tr>
         <tr>
             <td>Số điện thoại</td>
             <td>'.$sdt.'</td>
-            <td><a href="">Sửa</a></td>
+            <td><a href="index.php?act=suathongtintk&idtk='.$id.'">Sửa</a></td>
         </tr>
     </table>
     </div>';

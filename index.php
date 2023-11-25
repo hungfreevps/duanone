@@ -46,6 +46,24 @@
                 };
                 include "view/login/thongtintk.php";
                 break;
+
+            case "suathongtintk":
+                if(isset($_GET['idtk'])&&($_GET['idtk']>0)){
+                    $taikhoan = thongtintk($_GET['idtk']);
+                }
+                include "view/login/suathongtintk.php";
+                break;
+            case "updatethongtintk":
+                if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+                    $id=$_POST['id'];
+                    $user=$_POST['user'];
+                    $email=$_POST['email'];
+                    $sdt=$_POST['sdt'];
+                    $taikhoan = update_taikhoan($id,$user,$email,$sdt);
+                    $thongbao="cập nhật thành công!";
+                }
+                include "view/login/thongtintk.php";
+                break;
             case 'sanphamct': 
                 if(isset($_POST['guibinhluan'])&&($_POST['guibinhluan'])){
                     $user=get_user($_SESSION['user']);
