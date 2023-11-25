@@ -68,8 +68,16 @@
                     </form>
 
                     <div class="datepicker">
-                      <span class="datepicker__marker"><i class="fa fa-calendar"></i>Date</span>
-                      <input type="date" id="datepicker" name="ngaychieu" class="datepicker__input">
+                        
+                      <!-- <span class="datepicker__marker"><i class="fa fa-calendar"></i>Date</span> -->
+                      <?php 
+                        // $date=getdate();
+                        // echo "".$date['weekday']."/";
+                        // echo "".$date['mday']."";
+                        echo date('H : i : s');
+                      ?>
+                      <!-- <input type=""  name="ngaychieu" class="datepicker__input" value="<?php echo date('d/m/Y') ?>"> -->
+                      
             
                     </div>
 
