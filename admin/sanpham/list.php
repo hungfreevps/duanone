@@ -65,7 +65,8 @@
                 }
             ?>
            </table>
-           <a href="?act=themsp"> <input type="button" value="Them"></a>
+</div>
+<div>           <a href="?act=themsp"> <input type="button" value="Them"></a>
            <a href="?act=xoaspall"><input type="button" value="Xóa tat ca" onclick="return confirm(\'Bạn có chắc chắn muốn xóa tất cả không? (Xóa hết toàn bộ dữ liệu và không thể khôi phục))\')" > </a>
 
 </div>

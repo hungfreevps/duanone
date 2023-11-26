@@ -12,7 +12,7 @@
         <!-- <div class="table-admin"> -->
             <table class="table-left-sp" border="1">
             <tr class="">
-                <th>THỂ LOẠI</th>
+                <th colspan="2">THỂ LOẠI</th>
             </tr>
             <?php
 

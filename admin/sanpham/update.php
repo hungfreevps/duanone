@@ -4,7 +4,6 @@ if(is_array($sanpham)){
     extract($sanpham);
 }
 $duongdan = "../upload/".$img;
-echo $duongdan;
 if(is_file($duongdan)){
     $duongdan = "<img src =".$duongdan." width = '100px'>";
 } else{
