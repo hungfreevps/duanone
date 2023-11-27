@@ -3,13 +3,17 @@
             <div class="col-sm-12">
                 <div class="movie">
                     <?php
-                        extract($onesp);
+                    if(is_array($phimsp)){
+                        extract($phimsp);
+                        // print_r($phimsp);
+                    }
                     ?>
                     <h2 class="page-heading"><?php echo $tenphim; ?></h2>
                     <?php
                         
                         $img=$img_path.$img;
-                        echo '<div class="movie__info">
+                        echo '
+                        <div class="movie__info">
                                 <div class="col-sm-4 col-md-3 movie-mobile">
                                     <div class="movie__images">
                                         <span class="movie__rating">'.$sao.'</span>
@@ -19,18 +23,19 @@
                                 </div>
 
                                 <div class="col-sm-8 col-md-9">
-                                    <p class="movie__time">'.$giochieu.'</p>
+                                    <p class="movie__time">'.$thoiluong.'</p>
 
                                     <p class="movie__option"><strong>Quốc Gia: </strong><a href="#">'.$quocgia.'</a></p>
-                                    <p class="movie__option"><strong>Năm: </strong><a href="#">'.$namphathanh.'</a></p>
+                                    <p class="movie__option"><strong>Năm: </strong><a href="#">'.$nam.'</a></p>
                                     <p class="movie__option"><strong>Thể Loại: </strong><a href="#">'.$theloai.'</a></p>
                                     <p class="movie__option"><strong>Ngày Phát Hành: </strong>'.$ngaychieu.'</p>
                                     <p class="movie__option"><strong>Tác Giả: </strong><a href="#">'.$tacgia.'</a></p>
+                                    <p class="movie__option"><strong>Giờ Chiếu: </strong><a href="#">'.$giochieu.'</a></p>
                                     
                                     
                                     <div class="movie__btns movie__btns--full">
-                                        <a href="#" class="btn btn-md btn--warning">Đặt vé xem phim</a>
-                                        <a href="#" class="watchlist">Thêm giỏ hàng</a>
+                                        <a href="index.php?act=chongio" class="btn btn-md btn--warning">Đặt vé xem phim</a>
+                                        
                                     </div>
                                 </div>
                             </div> 
@@ -64,7 +69,8 @@
 
                     <div class="datepicker">
                       <span class="datepicker__marker"><i class="fa fa-calendar"></i>Date</span>
-                      <input type="text" id="datepicker" value="03/10/2014" class="datepicker__input">
+                      <input type="date" id="datepicker" name="ngaychieu" class="datepicker__input">
+            
                     </div>
 
                     <a href="#" id="map-switch" class="watchlist watchlist--map watchlist--map-full"><span class="show-map">map</span><span  class="show-time">Show cinema time table</span></a>
@@ -85,7 +91,7 @@
                             </ul>
                         </div>
 
-                        <div class="time-select__group">
+                        <!-- <div class="time-select__group">
                             <div class="col-sm-4">
                                 <p class="time-select__place">Địa Điểm 2</p>
                             </div>
@@ -137,7 +143,7 @@
                                 <li class="time-select__item" data-time="21:30">21:30</li>
                                 <li class="time-select__item" data-time="02:20">02:20</li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
                     
                     <!-- hiden maps with multiple locator-->
@@ -149,13 +155,20 @@
 
                     <div class="comment-wrapper">
                         <form id="comment-form" class="comment-form" method="post">
-                            <form action="index.php?act=sanphamct&idsp=<?=$id?>" method="post">
+                            <?php
+                                if(isset($_SESSION['user'])){
+                                    echo '<form action="index.php?act=sanphamct&idsp='.$id.'" method="post">
                                 
-                                <!-- <textarea class="comment-form__text" placeholder="Viết bình luận"></textarea> -->
-                                <input type="hidden" name="idpro" value="<?= $id; ?>">
-                                <input type="text" name="noidung" class="comment-form__text">
-                                <input type="submit" value="Đăng" name="guibinhluan" class="btn btn-md btn--danger comment-form__btn">
-                            </form>
+                                    <!-- <textarea class="comment-form__text" placeholder="Viết bình luận"></textarea> -->
+                                    <input type="hidden" name="idpro" value="'.$id.'">
+                                    <input type="text" name="noidung" class="comment-form__text">
+                                    <input type="submit" value="Đăng" name="guibinhluan" class="btn btn-md btn--danger comment-form__btn">
+                                </form>';
+                                }else{
+                                    echo 'Bạn cần đăng nhập để bình luận';
+                                }
+                            ?>
+                            
                             
 
                             <div class="comment-sets">

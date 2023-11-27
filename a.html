@@ -3,33 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-    <title>Button with Dropdown</title>
+    <title>Hiển thị nội dung sau khi click</title>
     <style>
-    .dropdown-menu{
-      min-width: none;
-      color: gray;
-      border: 1px solid;
-      
-    }
+        .hidden {
+            display: none;
+        }
     </style>
 </head>
 <body>
-  <script>
-    document.getElementById("myButton").addEventListener("click", function() {
-    var dropdownMenu = this.querySelector(".dropdown-menu");
-    dropdownMenu.style.display = (dropdownMenu.style.display === "block") ? "none" : "block";
-    });
-  </script>
-    
 
+    <ul>
+        <li onclick="showContent('content1')">Item 1</li>
+        <li onclick="showContent('content2')">Item 2</li>
+        <li onclick="showContent('content3')">Item 3</li>
+    </ul>
 
-    <div class="btn btn-md btn--warning btn--book btn-control--home" id="myButton">
-      <span>Tôi</span>
-      <div class="dropdown-menu">
-        <a href="#">Đăng xuất</a>
-    </div>
-    </div>
+    <span id="content1" class="hidden">Nội dung của Item 1</span>
+    <span id="content2" class="hidden">Nội dung của Item 2</span>
+    <span id="content3" class="hidden">Nội dung của Item 3</span>
+
+    <script>
+        function showContent(contentId) {
+            // Ẩn tất cả các nội dung trước khi hiển thị nội dung mới
+            var allContents = document.querySelectorAll('.hidden');
+            allContents.forEach(function(content) {
+                content.style.display = 'none';
+            });
+
+            // Hiển thị nội dung tương ứng với thẻ li được click
+            var selectedContent = document.getElementById(contentId);
+            selectedContent.style.display = 'block';
+        }
+    </script>
+
 </body>
 </html>

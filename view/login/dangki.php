@@ -19,9 +19,10 @@
                             <p class="login__tracker"></p>
 
                             <div class="field-wrap">
-                                <input type="text" placeholder="Tên đăng nhập" name="user" class="login__input">
+                                <input type="text" placeholder="Tên người dùng" name="user" class="login__input">
                                 <input type="email" placeholder="Email" name="email" class="login__input" require>
                                 <input type="password" placeholder="Password" name="pass" class="login__input">
+                                <input type="text" placeholder="Số điện thoại" name="sdt" class="login__input">
 
                             </div>
 
@@ -33,7 +34,7 @@
                             
                             <?php
                                 if(isset($thongbao) && ($thongbao!="")){
-                                    echo $thongbao;
+                                    echo '</br><div style="color: #00ff00; text-align: center;">' . $thongbao . '</div>';
                                 }
                             ?>
                             </div>

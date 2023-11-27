@@ -1,10 +1,10 @@
 <br><br><br><br><br><br>
 <div class="container">
-    <h3>THÊM THỂ LOẠI</h3>
+    <h3>THÊM NGÀY CHIẾU</h3>
     <div class="container-home">
-        <form action="index.php?act=themtheloai" method="post">
-            <label for="tenloai">TÊN THỂ LOẠI</label>
-            <input type="text" name="tenloai">
+        <form action="index.php?act=themngaychieu" method="post">
+            <label for="ngaychieu">CHỌN NGÀY</label>
+            <input type="date" name="ngaychieu" >
 
             <input type="submit" value="Them" name="themmoi">
 

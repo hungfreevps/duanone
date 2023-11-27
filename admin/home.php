@@ -1,5 +1,7 @@
 <style>
-
+    td{
+        text-align: center;
+    }
 </style>
 <main>
     <div class="container">
@@ -11,23 +13,24 @@
             <div class="table">
             <table border=1>
             <tr>
-                <th>#</th>
+                <th></th>
                 <th>TÊN</th>
                 <th>NGÀY CHIẾU</th>
                 <th>GIỜ</th>
                 <th>NĂM PHÁT HÀNH</th>
                 <th>THỂ LOẠI</th>
+              
             </tr>
             <?php
                 foreach ($listsanpham as $phim){
                     extract($phim);
-                    echo '<tr style="text-align: center;">
-                    <td><input type="checkbox" name="" id="">'.$id.'</td>
+                    echo '<tr>
+                    <td><input type="checkbox" name="" id=""></td>
                     <td>'.$tenphim.'</td>
                     <td>'.$ngaychieu.'</td>
                     <td>'.$giochieu.'</td>
-                    <td>'.$namphathanh.'</td>
-                    <td>Hành động</td>
+                    <td>'.$nam.'</td>
+                    <td>'.$theloai.'</td>
                 </tr>';
                 }
             ?>

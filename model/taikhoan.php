@@ -2,8 +2,8 @@
 <?php
 session_start();
 
-    function insert_taikhoan($user, $email, $pass){
-        $sql="insert into taikhoan(user, email, pass) values('$user', '$email', '$pass')";
+    function insert_taikhoan($user, $email, $pass, $sdt){
+        $sql="insert into taikhoan(user, email, pass, sdt) values('$user', '$email', '$pass', '$sdt')";
         pdo_execute($sql);
     }
     function dangnhap($email, $pass){
@@ -14,11 +14,13 @@ session_start();
         if($taikhoan != false ){
             $user = $taikhoan['user'];
             $id = $taikhoan['id'];
+            $role = $taikhoan['role'];
             echo "</br></br></br></br>";
             // echo $email."</br>";
             // echo $pass;
             $_SESSION["user"] = $user;
             $_SESSION["id"] = $id;
+            $_SESSION["role"] = $role;
             $_SESSION["loginsuccess"] = "Đăng nhập thành công";
             header('Location: index.php');
         }else{
@@ -41,9 +43,7 @@ session_start();
     }
 
     function update_taikhoan($id,$user,$email,$sdt){
-            // $sql="update sanpham set iddm='".$iddm."',name='".$tensp."',price='".$giasp."',mota='".$mota."',img='".$hinh."' where id=".$id;
         $sql=  "UPDATE `taikhoan` SET `user` = '{$user}', `email` = '{$email}', `sdt` = '{$sdt}' WHERE `taikhoan`.`id` = $id";
-        // pdo_execute($sql);
         
         $taikhoan = pdo_query($sql);
         return $taikhoan;

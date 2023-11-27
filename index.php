@@ -28,10 +28,10 @@
                     $user=$_POST['user'];
                     $email=$_POST['email'];
                     $pass=$_POST['pass'];
+                    $sdt=$_POST['sdt'];
                     
-                    insert_taikhoan($user, $email, $pass);
+                    insert_taikhoan($user, $email, $pass, $sdt);
                     $thongbao="Đăng ký thành công";
-                    
                 }
                 include "view/login/dangki.php";
                 break;
@@ -79,6 +79,22 @@
                 }else{
                     include "view/home.php";
                 }
+                break;
+            case 'chongio':
+                include "view/chongio.php";
+                break;
+            case 'chonghe':
+                if(isset($_POST["submit"]) && $_POST["submit"]){
+                    $tong = $_POST["choosen-cost"];
+                    $ghe = $_POST["choosen-sits"];
+                    echo $tong;
+                    echo $ghe;
+                }
+                
+                include "view/chonghe.php";
+                break;
+            case 'thanhtoan':
+                include "view/thanhtoan.php";
                 break;
         }
     }else{

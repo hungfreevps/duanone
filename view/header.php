@@ -131,7 +131,7 @@
                             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
                             z-index: 1;
                             min-width: 113px;
-                            padding: 5px 0;
+                            padding: 6px 0;
                             border-bottom-left-radius: 3px;
                             border-bottom-right-radius: 3px;
                         }
@@ -163,9 +163,12 @@
                                     '.$_SESSION['user'].'
                                     </span>
                                     <div class="dropdown-menu">
-                                        <a href="index.php?act=dangxuat">Đăng xuất</a></br>
-                                        <a href="index.php?act=thongtintk&idtk='.$_SESSION['id'].'">Thông tin tk</a>
-                                    </div>
+                                        <a href="index.php?act=thongtintk&idtk='.$_SESSION['id'].'">Thông tin tk</a></br>
+                                        <a href="index.php?act=dangxuat">Đăng xuất</a></br>';
+                                        if($_SESSION['role'] == 1){
+                                        echo '<a href="admin/index.php">Admin</a>';
+                                        }
+                                    echo '</div>
                                 </div>
                             ';
                             echo '<a style="min-width: 115px;" href="#" class="btn btn-md btn--warning btn--book btn-control--home">Đặt vé</a>';
@@ -181,6 +184,5 @@
                         }
                         ?>
                 </div>
-
             </div>
         </header>

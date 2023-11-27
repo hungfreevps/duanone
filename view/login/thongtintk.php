@@ -26,6 +26,11 @@
             <td>'.$sdt.'</td>
             <td><a href="index.php?act=suathongtintk&idtk='.$id.'">Sửa</a></td>
         </tr>
+        <tr>
+            <td>Role</td>
+            <td>'.$role.'</td>
+            <td><a href="index.php?act=suathongtintk&idtk='.$role.'">Sửa</a></td>
+        </tr>
     </table>
     </div>';
     
