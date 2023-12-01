@@ -339,7 +339,7 @@ Start doing.'>
                                 echo '<div class="movie movie--test movie--test--dark movie--test--left">
                                         <div class="movie__images">
                                             <a href="'.$link.'" class="movie-beta__link">
-                                                <img alt="" src="'.$hinh.'">
+                                                <img alt="" src="'.$hinh.'" style="width: 230px; height: 300px;">
                                             </a>
                                         </div>
 

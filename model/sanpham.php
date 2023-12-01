@@ -81,4 +81,22 @@
         pdo_execute($sql);
     }
 
+
+
+
+    // sql phần thêm ghế
+    function insert_ghe($ghe1, $ghe2, $ghe3, $tong, $tenghe){
+        $sql="insert into ghe(ghe1, ghe2, ghe3, tong, tenghe) values('$ghe1', '$ghe2', '$ghe3', '$tong', '$tenghe')";
+        $kq =  pdo_execute($sql);
+        return $kq;
+    }
+
+    function loadghe(){
+        // $sql = "select * from ghe where idphim = $idphim";
+        $sql = "select * from ghe";
+        $result = pdo_query_one($sql);
+        return $result;
+    }
+
+
 ?>

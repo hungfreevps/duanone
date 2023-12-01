@@ -21,7 +21,7 @@
             <div class="order-container">
                 <div class="order">
                     <img class="order__images" alt='' src="images/tickets.png">
-                    <p class="order__title">Book a ticket <br><span class="order__descript">and have fun movie time</span></p>
+                    <p class="order__title">Đặt vé <br><span class="order__descript">và tận hưởng thời gian xem phim vui vẻ</span></p>
                     <div class="order__control">
                         <a href="#" class="order__control-btn active">Purchase</a>
                         <a href="book3-reserve.html" class="order__control-btn">Reserve</a>
@@ -29,21 +29,45 @@
                 </div>
             </div>
                 <div class="order-step-area">
-                    <div class="order-step first--step order-step--disable ">1. What &amp; Where &amp; When</div>
+                    <div class="order-step first--step order-step--disable ">1. Cái gì &amp; ở đâu &amp; khi nào</div>
                     <div class="order-step second--step order-step--disable">2. Choose a sit</div>
                     <div class="order-step third--step">3. Check out</div>
                 </div>
 
             <div class="col-sm-12">
                 <div class="checkout-wrapper">
-                    <h2 class="page-heading">price</h2>
+                    <h2 class="page-heading">Giá</h2>
                     <ul class="book-result">
-                        <li class="book-result__item">Tickets: <span class="book-result__count booking-ticket">3</span></li>
-                        <li class="book-result__item">One item price: <span class="book-result__count booking-price">$20</span></li>
-                        <li class="book-result__item">Total: <span class="book-result__count booking-cost">$60</span></li>
+                        <li class="book-result__item">Vé: <span class="book-result__count booking-ticket"><?php 
+                        if($kq != false){
+                            $a = $kq['ghe1'];
+                            $b = $kq['ghe2'];
+                            $c = $kq['ghe3'];
+                            $tong = ($a + $b + $c);
+                            echo $tong;
+                            
+                        ?></span></li>
+                        <li class="book-result__item">Ghế: <span class="book-result__count booking-price"><?php
+                            
+                            $d = $kq['tenghe'];
+                            
+                            // Chuyển chuỗi thành mảng, sử dụng dấu phẩy làm delimiter
+                            $arr = explode(', ', $d);
+                            
+                            // Loại bỏ giá trị trùng lặp
+                            $arr = array_unique($arr);
+                            
+                            // Chuyển mảng thành chuỗi, sử dụng dấu phẩy và khoảng trắng làm delimiter
+                            $result = implode(', ', $arr);
+                            
+                            // Loại bỏ dấu phẩy ở cuối chuỗi
+                            $result = rtrim($result, ', ');
+                            echo $result;
+                        ?></span></li>
+                        <li class="book-result__item">Tổng: <span class="book-result__count booking-cost">$<?php echo $kq['tong']; } ?></span></li>
                     </ul>
 
-                    <h2 class="page-heading">Choose payment method</h2>
+                    <h2 class="page-heading">Lựa chọn hình thức thanh toán</h2>
                     <div class="payment">
                         <a href="#" class="payment__item">
                             <img alt='' src="images/payment/pay1.png">
@@ -68,14 +92,14 @@
                         </a>
                     </div>
 
-                    <h2 class="page-heading">Contact information</h2>
+                    <h2 class="page-heading">Thông tin liên lạc</h2>
             
                     <form id='contact-info' method='post' novalidate="" class="form contact-info">
                         <div class="contact-info__field contact-info__field-mail">
-                            <input type='email' name='user-mail' placeholder='Your email' class="form__mail">
+                            <input type='email' name='user-mail' placeholder='Email' class="form__mail">
                         </div>
                         <div class="contact-info__field contact-info__field-tel">
-                            <input type='tel' name='user-tel' placeholder='Phone number' class="form__mail">
+                            <input type='tel' name='user-tel' placeholder='Số điện thoại' class="form__mail">
                         </div>
                     </form>
 
@@ -83,7 +107,7 @@
                 </div>
                 
                 <div class="order">
-                    <a href="book-final.html" class="btn btn-md btn--warning btn--wide">purchase</a>
+                    <a href="book-final.html" class="btn btn-md btn--warning btn--wide">Mua</a>
                 </div>
 
             </div>

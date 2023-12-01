@@ -367,19 +367,18 @@
         </section>
         </div>
         
-       
+
         <div class="clearfix"></div>
         <!-- <form id='film-and-time' class="booking-form" method='get' action='https://amovie.gozha.net/book3-buy.html'> -->
-            <form id='film-and-time' class="" method='POST' action='index.php?act=chonghe' >
-    
-            <!-- <input type='text' name='choosen-number' class="choosen-number"> -->
+            <form id='film-and-time' class="" method='POST' action='index.php?act=chonghe'>
+<!-- 
+            <input type='text' name='choosen-number' class="choosen-number"> -->
             <input type='text' name='ghe1' class="choosen-number--cheap">
             <input type='text' name='ghe2' class="choosen-number--middle">
             <input type='text' name='ghe3' class="choosen-number--expansive">
             <input type='text' name='tong' class="choosen-cost">
-            <input type='text' name='tenghe' class="choosen-sits"> 
-
-          
+            <input type='text' name='tenghe' class="choosen-sits">
+            <input type="hidden" name="idphim" value="<?php $idphim ?>">
 
             <div class="booking-pagination booking-pagination--margin">
                     <a href="index.php?act=chongio" class="booking-pagination__prev">
@@ -396,28 +395,6 @@
         
         <div class="clearfix"></div>
 
-      
-            <?php
-
-                            
-                            $d = $kq['tenghe'];
-                            
-                            // Chuyển chuỗi thành mảng, sử dụng dấu phẩy làm delimiter
-                            $arr = explode(', ', $d);
-                            
-                            // Loại bỏ giá trị trùng lặp
-                            $arr = array_unique($arr);
-                            
-                            // Chuyển mảng thành chuỗi, sử dụng dấu phẩy và khoảng trắng làm delimiter
-                            $result = implode(', ', $arr);
-                            
-                            // Loại bỏ dấu phẩy ở cuối chuỗi
-                            $result = rtrim($result, ', ');
-                            echo $d;
-                        ?>
-
-
-        
        
 	<!-- JavaScript-->
         <!-- jQuery 1.9.1--> 
@@ -454,22 +431,23 @@
 
 
 
- <script>
-//     document.addEventListener("DOMContentLoaded", function () {
-//     var sitsPlaces = document.querySelectorAll('.sits__place');
 
-//     sitsPlaces.forEach(function (sit) {
-//         sit.addEventListener('click', function () {
-//             // Uncomment the lines below if you want to remove the class from all elements first
-//             // sitsPlaces.forEach(function (otherSit) {
-//             //     otherSit.classList.remove('sits-state--not');
-//             // });
+</script>
+<!-- foreach ($dataArray as $data) {
+           // Thực hiện các bước xử lý dữ liệu nếu cần
+           // Ví dụ: $data có giá trị là "J12", "F12", "D12"
+           // Chia chuỗi thành các phần riêng lẻ
+           $parts = str_split($data, 1);
+           $col1 = $parts[0];
+           $col2 = $parts[1];
+           $col3 = $parts[2];
 
-//             // Thêm lớp 'sits-state--not' cho nút được bấm
-//             this.classList.add('sits-state--not');
-//         });
-//     });
-// });
+           // Thực hiện câu truy vấn để lưu dữ liệu vào cơ sở dữ liệu
+           $sql = "INSERT INTO your_table_name (column1, column2, column3) VALUES ('$col1', '$col2', '$col3')";
+ -->
 
-// </script>
+
+
+
+
 

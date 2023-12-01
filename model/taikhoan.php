@@ -11,28 +11,20 @@ session_start();
         $taikhoan=pdo_query_one($sql);
         // $sql="select * from taikhoan";
         // $taikhoan = pdo_query($sql);
-        if($taikhoan != false ){
-            $user = $taikhoan['user'];
-            $id = $taikhoan['id'];
-            $role = $taikhoan['role'];
-            echo "</br></br></br></br>";
-            // echo $email."</br>";
-            // echo $pass;
-            $_SESSION["user"] = $user;
-            $_SESSION["id"] = $id;
-            $_SESSION["role"] = $role;
-            $_SESSION["loginsuccess"] = "Đăng nhập thành công";
-            header('Location: index.php');
-        }else{
-            echo "Thông tin không chính xác";
-        }
+        
         // var_dump($taikhoan);
+        return $taikhoan;
      }
     function dangxuat() {
         if (isset($_SESSION['user'])) {
             unset($_SESSION['user']);
             unset($_SESSION['id']);
         }
+    }
+    function quenmk($email, $sdt){
+        $sql="select * from taikhoan where email='$email' and sdt='$sdt'";
+        $quenmk=pdo_query_one($sql);
+        return $quenmk;
     }
     function thongtintk($id){
         $sql="select * from taikhoan where id = $id ";
