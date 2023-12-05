@@ -1,5 +1,4 @@
 <br><br><br><br><br>
-        
         <!-- Search bar -->
         <div class="search-wrapper">
             <div class="container container--add">
@@ -34,22 +33,25 @@
                     <div class="order-step first--step">1. Cái gì &amp; ở đâu &amp; khi nào</div>
                 </div>
 
-            <h2 class="page-heading heading--outcontainer">Choose a movie</h2>
+            <h2 class="page-heading heading--outcontainer">Chọn phim</h2>
         </section>
-
-
+        
         <section class="container">
+            <div style="padding-left: 15px;">
+                <?php ; ?>
+                <img src="<?php echo "upload/".$phimsp['img']; ?>" alt=""><br><br>
+            </div>
             <div class="col-sm-12">
                 <div class="choose-indector choose-indector--film">
-                    <strong>Chọn: </strong><span class="choosen-area"></span>
+                    <strong>Chọn: </strong><span class="choosen-area"><?php echo $phimsp['tenphim']; ?></span>
                 </div>
 
-                <h2 class="page-heading">Thành phố &amp; ngày</h2>
+                <h2 class="page-heading">Thành phố &amp; ngày xem</h2>
 
                 <div class="choose-container choose-container--short">
                     <form id='select' class="select" method='get'>
-                          <select name="select_item" id="select-sort" class="select__sort" tabindex="0">
-                            <option value="1" selected='selected'>London</option>
+                          <!-- <select name="select_item" id="select-sort" class="select__sort" tabindex="0">
+                            <option value="1" selected='selected'>Hà nội</option>
                             <option value="2">New York</option>
                             <option value="3">Paris</option>
                             <option value="4">Berlin</option>
@@ -57,16 +59,17 @@
                             <option value="3">Minsk</option>
                             <option value="4">Warsawa</option>
                             <option value="5">Kiev</option>
-                        </select>
+                        </select> -->
+                        Hà nội
                     </form>
 
                     <div class="datepicker">
-                      <span class="datepicker__marker"><i class="fa fa-calendar"></i>Date</span>
-                      <input type="text" id="datepicker" value='03/10/2014' class="datepicker__input">
+                      <span class="datepicker__marker"><i class="fa fa-calendar"></i>Ngày</span>
+                      <input type="date" id="datepicker" value='' class="datepicker__input" name="chonngay">
                     </div>
                 </div>
 
-                <h2 class="page-heading">Chọn thời gian</h2>
+                <h2 class="page-heading">Chọn thời gian xem</h2>
 
                 <div class="time-select time-select--wide">
                         <div class="time-select__group group--first">
@@ -74,83 +77,141 @@
                                 <p class="time-select__place">Cineworld</p>
                             </div>
                             <ul class="col-sm-6 items-wrap">
-                            <?php
-                            foreach($listgiochieu as $gc){
-                                extract($gc);
-                                echo ' 
-                                <li class="time-select__item" data-time="'.$giochieu.'" onclick="showContent('.$id.')">'.$giochieu.'</li>';
-                            }
-                            ?>
+                                <?php
+                                foreach($listgiochieu as $gc){
+                                    extract($gc);
+                                    echo ' 
+                                    <li class="time-select__item" data-time="'.$giochieu.'" onclick="showContent('.$id.')">'.$giochieu.'</li>';
+                                }
+                                ?>
                             </ul>
                         </div>
+            <style>
+                .hidden {
+                    display: none;
+                        }
+            </style>
+    
+                </div>
 
-                        <style>
-                            .hidden {
-                                display: none;
-                                    }
-                        </style>
-     <script>
-        function showContent($id) {
-            // Ẩn tất cả các nội dung trước khi hiển thị nội dung mới
-            var allContents = document.querySelectorAll('.hidden');
-            allContents.forEach(function(content) {
-                content.style.display = 'none';
-            });
-
-            // Hiển thị nội dung tương ứng với thẻ li được click
-            var selectedContent = document.getElementById($id);
-            selectedContent.style.display = 'block';
-        }
-    </script>
                 <div class="choose-indector choose-indector--time">
-                    <strong>Chọn: 
-                    <?php
-                    foreach($listgiochieu as $gc){
-                        extract($gc);
-                            echo " 
-                            <span id='".$id."' class='hidden'>".$giochieu."</span>
-                            ";
-                    }
-                    ?>
-
-                    </strong>
-                    
-                    <span class="choosen-area"></span>
+                    <strong style="display: flex;">Chọn: &emsp;
+                        <?php
+                        foreach($listgiochieu as $gc){
+                            extract($gc);
+                                echo " 
+                                <span id='".$id."' class='hidden'>".$giochieu."</span>
+                                ";
+                        }
+                        ?>
+                    </strong><span class="choosen-area"></span>
                 </div>
             </div>
 
         </section>
 
-        <div class="clearfix"></div>
+        <div class="clearfix"></div><br>
 
-        <form id='film-and-time' class="" method='get' action='https://amovie.gozha.net/book2.html'>
-            <input type='text' name='choosen-movie' class="choosen-movie">
-
+        <!-- <form id='film-and-time' class="booking-form" method='get' action='https://amovie.gozha.net/book2.html'> -->
+        <form id='film-and-time' class="" method='POST' action='index.php?act=chongio&idphim=<?php echo $idphim; ?>&iduser=<?php echo $iduser; ?>'>
+            <!-- <input type='text' name='choosen-movie' class="choosen-movie">
             <input type='text' name='choosen-city' class="choosen-city">
+            <input type='text' name='choosen-cinema' class="choosen-cinema"> -->
+
             <input type='text' name='choosen-date' class="choosen-date">
-            
-            <input type='text' name='choosen-cinema' class="choosen-cinema">
             <input type='text' name='choosen-time' class="choosen-time">
-        
+            <button type="submit" name="submit" value="gui" class="bt--chonghe">Xác nhận</button>
 
             <div class="booking-pagination">
-                    <a href="index.php?act=chonghe" class="booking-pagination__prev hide--arrow">
-                        <span class="arrow__text arrow--prev"></span>
+                    <a href="#" class="booking-pagination__prev hide--arrow">
+                        <span class="arrow__text arrow--prev">hillo</span>
                         <span class="arrow__info"></span>
                     </a>
-                    <a href="index.php?act=chonghe" class="booking-pagination__next">
+                    <a href="index.php?act=chonghe&idphim=<?php echo $idphim; ?>&iduser=<?php echo $iduser; ?>" class="booking-pagination__next">
                         <span class="arrow__text arrow--next">next step</span>
                         <span class="arrow__info">choose a sit</span>
                     </a>
             </div>
-
         </form>
+        <style>
+        
+        .bt--chonghe{
+            display: block;
+            margin: 0 auto;
+            background-color: #e74c3c;
+            padding: 10px 20px;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        </style>
+        <script>
+            //chọn time
+                function showContent(id) {
+                    // Ẩn tất cả các nội dung trước khi hiển thị nội dung mới
+                    var allContents = document.querySelectorAll('.hidden');
+                    allContents.forEach(function (content) {
+                        content.style.display = 'none';
+                    });
+
+                    // Hiển thị nội dung tương ứng với thẻ li được click
+                    var selectedContent = document.getElementById(id);
+                    selectedContent.style.display = 'block';
+
+                    // Lấy nội dung của phần tử được chọn và in ra màn hình
+                    var selectedContentText = selectedContent.textContent || selectedContent.innerText;
+
+                    // Đặt nội dung vào thẻ input có name là "choosen-time"
+                    var inputElement = document.querySelector('input[name="choosen-time"]');
+                    if (inputElement) {
+                        inputElement.value = selectedContentText;
+                    } else {
+                        console.error('Không tìm thấy thẻ input với name là "choosen-time"');
+                    }
+
+                    // In ra màn hình cho kiểm tra
+                    console.log("Nội dung vừa hiển thị:", selectedContentText);
+                }
+                
+            // chọn date
+                document.addEventListener('DOMContentLoaded', function () {
+                // Lấy các phần tử cần thiết từ DOM
+                var datepicker = document.getElementById('datepicker');
+                var choosenTimeInput = document.querySelector('.choosen-date');
+
+                // Thêm sự kiện 'input' cho ô input datepicker
+                datepicker.addEventListener('input', function () {
+                    
+                // Gán giá trị ngày đã chọn cho ô input choosen-time
+                choosenTimeInput.value = datepicker.value;
+                });
+        });
+    </script>
+
+
+
+        <?php
+            // echo $kq['id_phim'];    
+            // foreach($result as $id){
+            //     extract($id);
+            //     echo $id_phim;
+            // }
+            // if($id_phim != $idphim){
+            //     insert_bangghe($idphim);
+            // }
+            // Khai báo một biến để kiểm tra xem hàm đã được thực hiện hay chưa
+
+            // $daThucHien = false;
+            // if ($daThucHien == false) {
+            // insert_bangghe($idphim);
+
+            // $daThucHien = true;
+            // }
+        ?>
         
         <div class="clearfix"></div>
-
-       
-
-   
 
 	<!-- JavaScript-->
         <!-- jQuery 1.9.1--> 

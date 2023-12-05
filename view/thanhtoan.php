@@ -39,13 +39,13 @@
                     <h2 class="page-heading">Giá</h2>
                     <ul class="book-result">
                         <li class="book-result__item">Vé: <span class="book-result__count booking-ticket"><?php 
-                        if($kq != false){
-                            $a = $kq['ghe1'];
-                            $b = $kq['ghe2'];
-                            $c = $kq['ghe3'];
-                            $tong = ($a + $b + $c);
-                            echo $tong;
-                            
+                            if($kq != false){
+                                $a = $kq['ghe1'];
+                                $b = $kq['ghe2'];
+                                $c = $kq['ghe3'];
+                                $tong = ($a + $b + $c);
+                                echo $tong;
+                        
                         ?></span></li>
                         <li class="book-result__item">Ghế: <span class="book-result__count booking-price"><?php
                             
@@ -56,7 +56,7 @@
                             
                             // Loại bỏ giá trị trùng lặp
                             $arr = array_unique($arr);
-                            
+                            // echo print_r($arr);
                             // Chuyển mảng thành chuỗi, sử dụng dấu phẩy và khoảng trắng làm delimiter
                             $result = implode(', ', $arr);
                             
@@ -66,6 +66,33 @@
                         ?></span></li>
                         <li class="book-result__item">Tổng: <span class="book-result__count booking-cost">$<?php echo $kq['tong']; } ?></span></li>
                     </ul>
+
+
+                    <?php
+                        // foreach ($arr as $key => $value) {
+    
+                        //     // Kiểm tra xem có phần tử tương ứng trong $_SESSION hay không
+                        //     if (isset($_SESSION[$key])) {
+                                
+                        //         // Lấy giá trị từ $_SESSION dựa trên tên phần tử
+                        //         $sessionValue = $_SESSION[$key];
+                                
+                        //         // In ra tên phần tử, giá trị từ mảng và giá trị từ $_SESSION
+                        //         echo "Element: $key, Array Value: $value, Session Value: $sessionValue<br>";
+                        //     } else {
+                        //         // Nếu không có phần tử tương ứng trong $_SESSION
+                        //        //  echo "Element: $key, Array Value: $value, Session Value not set<br>";
+                        //     }
+                        // }
+                    ?>
+
+
+
+
+
+
+
+
 
                     <h2 class="page-heading">Lựa chọn hình thức thanh toán</h2>
                     <div class="payment">
@@ -118,7 +145,7 @@
         <div class="clearfix"></div>
 
         <div class="booking-pagination">
-                <a href="index.php?act=chonghe" class="booking-pagination__prev">
+                <a href="index.php?act=chonghe&idphim=<?php echo $idphim; ?>&iduser=<?php echo $iduser; ?>" class="booking-pagination__prev">
                     <p class="arrow__text arrow--prev">prev step</p>
                     <span class="arrow__info">choose a sit</span>
                 </a>

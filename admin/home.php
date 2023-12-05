@@ -1,7 +1,29 @@
-<style>
-    td{
-        text-align: center;
-    }
+
+    <style>
+        body {
+            background-image: url('../path-to-your-background-image.jpg');
+            background-size: cover; /* Adjust as needed */
+            background-position: center center; /* Adjust as needed */
+            background-repeat: no-repeat;
+            background-color: #f0f0f0; /* Màu nền cho body */
+        }
+
+        h2, h3 {
+            color: blue; /* Màu chữ cho tiêu đề h2 và h3 */
+        }
+
+        table {
+            background-color: lightgray; /* Màu nền cho bảng */
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            text-align: center;
+            color: black; /* Màu chữ cho các ô trong bảng */
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
 </style>
 <main>
     <div class="container">
@@ -13,19 +35,17 @@
             <div class="table">
             <table border=1>
             <tr>
-                <th></th>
+            
                 <th>TÊN</th>
                 <th>NGÀY CHIẾU</th>
                 <th>GIỜ</th>
                 <th>NĂM PHÁT HÀNH</th>
                 <th>THỂ LOẠI</th>
-              
             </tr>
             <?php
                 foreach ($listsanpham as $phim){
                     extract($phim);
                     echo '<tr>
-                    <td><input type="checkbox" name="" id=""></td>
                     <td>'.$tenphim.'</td>
                     <td>'.$ngaychieu.'</td>
                     <td>'.$giochieu.'</td>

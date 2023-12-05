@@ -1,6 +1,5 @@
 <?php
 ob_start();
-session_start();
 include "../admin/header.php";
 include "../model/pdo.php";
 include "../model/sanpham.php";
@@ -242,7 +241,6 @@ if((isset($_GET['act'])) && ($_GET['act']!="")){
 } else {
     $listsanpham = loadall_sanpham();
     include "../admin/home.php";
-    // var_dump($listsanpham);
 }
 include "../admin/footer.php";
 ob_end_flush();

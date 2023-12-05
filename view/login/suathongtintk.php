@@ -1,27 +1,27 @@
 <br><br><br><br>
 <?php
-    foreach ($taikhoan as $tk) {
-        extract($tk);
-    }
+    // foreach ($taikhoan as $tk) {
+    //     extract($tk);
+    // }
     echo '
-    <form action="index.php?act=updatethongtintk" method="POST" enctype="multipart/form-data">
+    <form action="index.php?act=thongtintk&iduser='.$iduser.'" method="POST" enctype="multipart/form-data">
         <div>
             <table border=1>
                 <tr>
-                    <td>ID: </td>
-                    <td><input type="text" name="id" value="'.$id.'"></td>
-                </tr>
-                <tr>
                     <td>User: </td>
-                    <td><input type="text" name="user" value="'.$user.'"></</td>
+                    <td><input type="text" name="user" value="'.$taikhoan["user"].'"></</td>
                 </tr>
                 <tr>
                     <td>Email: </td>
-                    <td><input type="text" name="email" value="'.$email.'"></</td>
+                    <td><input type="text" name="email" value="'.$taikhoan["email"].'"></</td>
                 </tr>
                 <tr>
                     <td>Số điện thoại</td>
-                    <td><input type="text" name="sdt" value="'.$sdt.'"></</td>
+                    <td><input type="text" name="sdt" value="'.$taikhoan["sdt"].'"></</td>
+                </tr>
+                <tr>
+                    <td>Mật khẩu</td>
+                    <td><input type="text" name="pass" value="'.$taikhoan["pass"].'"></</td>
                 </tr>
             </table></br></br>
             <div style="text-align: center;">
@@ -38,13 +38,9 @@
     
 ?><br><br><br><br><br>
 <?php
-        if(isset($thongbao)&&($thongbao!=""))echo $thongbao;
+        if(isset($thongbao)&&($thongbao!=" "))echo $thongbao;
 
         ?>
-
-
-
-    
 
 <style>
     table{

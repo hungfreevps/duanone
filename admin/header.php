@@ -44,7 +44,7 @@
         <header class="header-wrapper header-wrapper--home">
             <div class="container">
                 <!-- Logo link-->
-                <a href='../index.php' class="logo">
+                <a href='#' class="logo">
                     <img alt='logo' src="../images/logo.png">
                 </a>
                 
@@ -60,7 +60,11 @@
 
                         <li>
                             <span class="sub-nav-toggle plus"></span>
-                            <a href="#">Quản Lý Thể Loại</a>
+                            <a href="?act=danhmuc">Quản Lý User</a>
+                        </li>
+                        <li>
+                            <span class="sub-nav-toggle plus"></span>
+                            <a href="?act=danhmuc">Quản Lý Danh Mục</a>
                         </li>
 
                         <li>
@@ -83,65 +87,23 @@
                 <!-- Additional header buttons / Auth and direct link to booking-->
                 <div class="control-panel">
                     <div class="auth auth--home">
-                      <!-- <div class="auth__show">
+                      <div class="auth__show">
                         <span class="auth__image">
                           <img alt="" src="../images/client-photo/auth.png">
                         </span>
                       </div>
                       <a href="#" class="btn btn--sign btn--singin">
                           me
-                      </a> -->
-                      <style>
-                        .btn {
-                            position: relative;
-                            display: inline-block;
-                        }
-                        .dropdown-menu {
-                            display: none;
-                            position: absolute;
-                            top: 100%;
-                            left: 0;
-                            background-color: gray;
-                            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-                            z-index: 1;
-                            min-width: 113px;
-                            padding: 6px 0;
-                            border-bottom-left-radius: 3px;
-                            border-bottom-right-radius: 3px;
-                        }
-                        .btn:hover .dropdown-menu {
-                            display: block;
-                        }
-                        .dropdown-menu a {
-                            color: #b4b1b2;
-                            text-decoration: none;
-                            
-                            font-size: 11px;
-                        }
-                        .dropdown-menu a:hover{
-                            color: #fff;
-                        }
-                        #navigation{
-                            padding: 0 10px;
-                        }
-                    </style>
-                    <script>
-                        document.getElementById("myButton").addEventListener("click", function() {
-                        var dropdownMenu = this.querySelector(".dropdown-menu");
-                        dropdownMenu.style.display = (dropdownMenu.style.display === "block") ? "none" : "block";
-                        }); 
-                    </script>
+                      </a>
+                        <ul class="auth__function">
+                            <li><a href="#" class="auth__function-item login-window">đăng nhập</a></li>
+                            <li><a href="../login.html" class="auth__function-item">đăng ký</a></li>
+                        </ul>
 
-                                
-
-
-                </div>
-                    <div class="btn btn-md btn--warning btn--book btn-control--home ">
-                        <span style="padding: 0 17.5px;">
-                            Admin
-                            <div class="dropdown-menu">
-                                <a href="../index.php">Trang chủ</a></br>
-                            </div>
+                    </div>
+                    <div class="btn btn-md btn--warning btn--book btn-control--home login-window">
+                        <span>
+                       <a href="login.html" class="auth__function-item login-window">Đăng Nhập</a>
                         </span>
                     </div>
                 </div>

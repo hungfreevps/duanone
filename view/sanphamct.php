@@ -17,7 +17,7 @@
                                 <div class="col-sm-4 col-md-3 movie-mobile">
                                     <div class="movie__images">
                                         <span class="movie__rating">'.$sao.'</span>
-                                        <img alt="" src="'.$img.'">
+                                        <img alt="" src="'.$img.'" style="width: 258px;">
                                     </div>
                                     
                                 </div>
@@ -34,7 +34,7 @@
                                     
                                     
                                     <div class="movie__btns movie__btns--full">
-                                        <a href="index.php?act=chongio" class="btn btn-md btn--warning">Đặt vé xem phim</a>
+                                        <a href="index.php?act=chongio&idphim='.$idphim.'&iduser='.$iduser.'" class="btn btn-md btn--warning">Đặt vé xem phim</a>
                                         
                                     </div>
                                 </div>
@@ -46,12 +46,6 @@
 
                                 <p class="movie__describe">'.$mota.'</p>';
                     ?>
-                    
-                    
-                    
-
-                    
-
                 </div>
 
                 <h2 class="page-heading">Thời Gian &amp; Địa Điểm</h2>
@@ -69,11 +63,10 @@
 
                     <div class="datepicker">
                       <span class="datepicker__marker"><i class="fa fa-calendar"></i>Date</span>
-                      <input type="date" id="datepicker" name="ngaychieu" class="datepicker__input">
+                      <input type="text" id="datepicker" value='7/12/2023' class="datepicker__input">
             
                     </div>
 
-                    <a href="#" id="map-switch" class="watchlist watchlist--map watchlist--map-full"><span class="show-map">map</span><span  class="show-time">Show cinema time table</span></a>
                     
                     <div class="clearfix"></div>
 
@@ -168,7 +161,7 @@
                                     echo 'Bạn cần đăng nhập để bình luận';
                                 }
                             ?>
-                            
+                            <br>
                             
 
                             <div class="comment-sets">
@@ -199,3 +192,5 @@
             </div>
 
         </section>
+
+<div class="clearfix"></div>

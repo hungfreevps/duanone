@@ -1,15 +1,15 @@
         <!-- Slider -->
-        <!-- <div class="bannercontainer">
+            <div class="bannercontainer">
                     <div class="banner">
                         <img alt="" src="images/slides/first-slide.jpg">
                     </div>
-        </div> -->
+            </div> 
 
         <!--end slider -->
 
 
-         <!-- Slider -->
-         <div class="bannercontainer">
+        <!-- Slider -->
+        <!-- <div class="bannercontainer">
                     <div class="banner">
                         <ul>
 
@@ -293,7 +293,7 @@ Start doing.'>
 
                         </ul>
                     </div>
-                </div>
+                </div> -->
 
         <!--end slider -->
         

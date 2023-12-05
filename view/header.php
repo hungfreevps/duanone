@@ -3,6 +3,8 @@
 
 <!-- Mirrored from amovie.gozha.net/book1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 01 Nov 2023 12:59:07 GMT -->
 <head>
+        <script src="https://kit.fontawesome.com/509cc166d7.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 	<!-- Basic Page Needs -->
         <meta charset="utf-8">
         <title>AMovie - Booking step 1</title>
@@ -153,7 +155,7 @@
                                     '.$_SESSION['user'].'
                                     </span>
                                     <div class="dropdown-menu">
-                                        <a href="index.php?act=thongtintk&idtk='.$_SESSION['id'].'">Thông tin tk</a></br>
+                                        <a href="index.php?act=thongtintk&iduser='.$_SESSION['iduser'].'">Thông tin tk</a></br>
                                         <a href="index.php?act=dangxuat">Đăng xuất</a></br>';
                                         if($_SESSION['role'] == 1){
                                         echo '<a href="admin/index.php">Admin</a>';

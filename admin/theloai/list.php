@@ -4,15 +4,62 @@
 
 <div class="container-home">
     <style>
-        th,td{
+  
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            /* Add any other styles you want for the body */
+        }
+
+        .container-home {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background-color: #fff; /* Màu nền cho container */
+        }
+
+        .table-left-sp {
+            border-collapse: collapse;
+            width: calc(33.33% - 20px); /* 33.33% width for each table with some spacing */
+            margin-right: 20px;
+            margin-bottom: 20px; /* Add some bottom margin to create space between rows */
+        }
+
+        h3 {
+            color: #333;
+            text-align: center;
+            /* Add any other styles you want for the heading */
+        }
+
+
+        th, td {
             min-width: 200px;
             min-height: 1%;
+            padding: 10px;
+            text-align: left;
         }
+        input[type="button"] {
+    background-color: #3498db; /* Màu xanh dương nhạt cho nút */
+    color: #fff; /* Màu chữ trắng */
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Hover effect cho nút bấm */
+input[type="button"]:hover {
+    background-color: #2980b9; /* Màu xanh dương đậm khi hover */
+}
+
+        /* Add any other styles for your tables, buttons, etc. */
+
     </style>
+
         <!-- <div class="table-admin"> -->
             <table class="table-left-sp" border="1">
             <tr class="">
-                <th>THỂ LOẠI</th>
+                <th colspan="2">THỂ LOẠI</th>
             </tr>
             <?php
 
@@ -43,6 +90,8 @@
                     extract($qg);
                     echo "<tr>
                     <td>".$quocgia."</td>
+                    <td><a href='".$suasp."'><input type='button' value='Sửa'> </a>   
+                    <a href='#'><input type='button'value='Xóa' onclick='return confirm(\'Bạn có chắc chắn muốn xóa\')' > </a></td>
 
                     ";
                 
@@ -62,6 +111,8 @@
                     extract($npt);
                     echo "<tr>
                     <td>".$nam."</td>
+                    <td><a href='".$suasp."'><input type='button' value='Sửa'> </a>   
+                    <a href='#'><input type='button'value='Xóa' onclick='return confirm(\'Bạn có chắc chắn muốn xóa\')' > </a></td>
 
                     ";
                 
@@ -80,6 +131,8 @@
                     extract($gio);
                     echo "<tr>
                     <td>".$giochieu."</td>
+                    <td><a href='".$suasp."'><input type='button' value='Sửa'> </a>   
+                    <a href='#'><input type='button'value='Xóa' onclick='return confirm(\'Bạn có chắc chắn muốn xóa\')' > </a></td>
 
                     ";
                 
@@ -98,6 +151,8 @@
                     extract($ngaychieu);
                     echo "<tr>
                     <td>".$ngaychieu."</td>
+                    <td><a href='".$suasp."'><input type='button' value='Sửa'> </a>   
+                    <a href='#'><input type='button'value='Xóa' onclick='return confirm(\'Bạn có chắc chắn muốn xóa\')' > </a></td>
 
                     ";
                 
@@ -117,6 +172,8 @@
                     extract($tacgia);
                     echo "<tr>
                     <td>".$tacgia."</td>
+                    <td><a href='".$suasp."'><input type='button' value='Sửa'> </a>   
+                    <a href='#'><input type='button'value='Xóa' onclick='return confirm(\'Bạn có chắc chắn muốn xóa\')' > </a></td>
 
                     ";
                 

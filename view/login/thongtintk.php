@@ -1,39 +1,31 @@
 <br><br><br><br>
 <?php
-    foreach ($taikhoan as $tk) {
-        extract($tk);
-    }
+
     echo '
     <div>
     <table border=1>
         <tr>
-            <td>ID: </td>
-            <td>'.$id.'</td>
-            <td><a href="index.php?act=suathongtintk&idtk='.$id.'">Sửa</a></td>
-        </tr>
-        <tr>
             <td>User: </td>
-            <td>'.$user.'</td>
-            <td><a href="index.php?act=suathongtintk&idtk='.$id.'">Sửa</a></td>
+            <td>'.$taikhoan["user"].'</td>
+            <td><a href="index.php?act=suathongtintk&iduser='.$iduser.'">Sửa</a></td>
         </tr>
         <tr>
             <td>Email: </td>
-            <td>'.$email.'</td>
-            <td><a href="index.php?act=suathongtintk&idtk='.$id.'">Sửa</a></td>
+            <td>'.$taikhoan["email"].'</td>
+            <td><a href="index.php?act=suathongtintk&iduser='.$iduser.'">Sửa</a></td>
         </tr>
         <tr>
             <td>Số điện thoại</td>
-            <td>'.$sdt.'</td>
-            <td><a href="index.php?act=suathongtintk&idtk='.$id.'">Sửa</a></td>
+            <td>'.$taikhoan["sdt"].'</td>
+            <td><a href="index.php?act=suathongtintk&iduser='.$iduser.'">Sửa</a></td>
         </tr>
         <tr>
-            <td>Role</td>
-            <td>'.$role.'</td>
-            <td><a href="index.php?act=suathongtintk&idtk='.$role.'">Sửa</a></td>
+            <td>Mật khẩu</td>
+            <td>******</td>
+            <td><a href="index.php?act=suathongtintk&iduser='.$iduser.'">Sửa</a></td>
         </tr>
     </table>
-    </div>';
-    
+    </div>';  
 ?><br><br><br><br><br>
 <style>
     table{

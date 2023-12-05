@@ -17,13 +17,16 @@
                             <!-- <input type="text" placeholder="Tên đăng nhập" name="user" class="login__input"> -->
                             <input type="email" placeholder="Email" name="email" class="login__input" require>
                             <input type="password" placeholder="Password" name="pass" class="login__input">
-
                             <input type='checkbox' id='#informed' class='login__check styled'>
                             <label for='#informed' class='login__check-info'>Ghi nhớ tài khoản</label>
                         </div>
                         <?php
                             if(isset($thongbao) && $thongbao!= " "){
                                 echo '</br><div style="color: orange; text-align: center;">' . $thongbao . '</div>';
+                            }
+
+                            if(isset($thongbaoloi) && $thongbaoloi!= " "){
+                                echo '</br><div style="color: orange; text-align: center;">' . $thongbaoloi . '</div>';
                             }
                         ?>
 
@@ -36,6 +39,7 @@
                         </div>
                         </div>
                     </form>
+
 
                     
                     

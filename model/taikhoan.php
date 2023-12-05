@@ -1,6 +1,6 @@
 
 <?php
-session_start();
+    session_start();
 
     function insert_taikhoan($user, $email, $pass, $sdt){
         $sql="insert into taikhoan(user, email, pass, sdt) values('$user', '$email', '$pass', '$sdt')";
@@ -18,7 +18,8 @@ session_start();
     function dangxuat() {
         if (isset($_SESSION['user'])) {
             unset($_SESSION['user']);
-            unset($_SESSION['id']);
+            unset($_SESSION['iduser']);
+            session_unset();
         }
     }
     function quenmk($email, $sdt){
@@ -28,16 +29,16 @@ session_start();
     }
     function thongtintk($id){
         $sql="select * from taikhoan where id = $id ";
-        $taikhoan = pdo_query($sql);
+        $taikhoan = pdo_query_one($sql);
         // var_dump($taikhoan);
         // print_r($taikhoan);
         return $taikhoan;
     }
 
-    function update_taikhoan($id,$user,$email,$sdt){
-        $sql=  "UPDATE `taikhoan` SET `user` = '{$user}', `email` = '{$email}', `sdt` = '{$sdt}' WHERE `taikhoan`.`id` = $id";
+    function update_taikhoan($idtk,$user,$email,$sdt,$pass){
+        $sql=  "UPDATE `taikhoan` SET `user` = '{$user}', `email` = '{$email}', `sdt` = '{$sdt}', `pass` = '{$pass}' WHERE `taikhoan`.`id` = $idtk";
         
-        $taikhoan = pdo_query($sql);
+        $taikhoan = pdo_query_one($sql);
         return $taikhoan;
     
     }
