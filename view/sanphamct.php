@@ -1,4 +1,9 @@
 <br> <br> <br>
+<?php 
+    // Ẩn thông báo lỗi
+    error_reporting(0);
+    ini_set('display_errors', 0);
+?>
 <section class="container">
             <div class="col-sm-12">
                 <div class="movie">
@@ -51,21 +56,14 @@
                 <h2 class="page-heading">Thời Gian &amp; Địa Điểm</h2>
                 <div class="choose-container">
                     <form id="select" class="select" method="get">
-                          <select name="select_item" id="select-sort" class="select__sort" tabindex="0">
-                            <option value="1" selected="selected">Hà Nội</option>
-                            <option value="2">Thành Phố HCM</option>
-                            <option value="3">Thái Bình</option>
-                            <option value="4">Bắc Giang</option>
-                            <option value="5">Bắc Ninh</option>
-                            
-                        </select>
+
                     </form>
 
                     <div class="datepicker">
                       <span class="datepicker__marker"><i class="fa fa-calendar"></i>Date</span>
-                      <input type="text" id="datepicker" value='7/12/2023' class="datepicker__input">
+                      <input type="text" id="datepicker" value='<?php $t=time(); echo(date("d-m-Y",$t)); ?>' class="datepicker__input">
             
-                    </div>
+                    </div><br><br>
 
                     
                     <div class="clearfix"></div>
@@ -73,14 +71,16 @@
                     <div class="time-select">
                         <div class="time-select__group group--first">
                             <div class="col-sm-4">
-                                <p class="time-select__place">Địa Điểm 1</p>
+                                <p class="time-select__place">Hà Nội</p>
                             </div>
-                            <ul class="col-sm-8 items-wrap">
-                                <li class="time-select__item" data-time="09:40">09:40</li>
-                                <li class="time-select__item" data-time="13:45">13:45</li>
-                                <li class="time-select__item" data-time="15:45">15:45</li>
-                                <li class="time-select__item" data-time="19:50">19:50</li>
-                                <li class="time-select__item" data-time="21:50">21:50</li>
+                            <ul class="col-sm-6 items-wrap">
+                                <?php
+                                foreach($listgiochieu as $gc){
+                                    extract($gc);
+                                    echo ' 
+                                    <li class="time-select__item" data-time="'.$giochieu.'">'.$giochieu.'</li>';
+                                }
+                                ?>
                             </ul>
                         </div>
 
@@ -150,10 +150,10 @@
                         <form id="comment-form" class="comment-form" method="post">
                             <?php
                                 if(isset($_SESSION['user'])){
-                                    echo '<form action="index.php?act=sanphamct&idsp='.$id.'" method="post">
+                                    echo '<form action="index.php?act=sanphamct&idsp='.$idphim.'" method="post">
                                 
                                     <!-- <textarea class="comment-form__text" placeholder="Viết bình luận"></textarea> -->
-                                    <input type="hidden" name="idpro" value="'.$id.'">
+                                    <input type="hidden" name="idpro" value="'.$idphim.'">
                                     <input type="text" name="noidung" class="comment-form__text">
                                     <input type="submit" value="Đăng" name="guibinhluan" class="btn btn-md btn--danger comment-form__btn">
                                 </form>';
@@ -172,7 +172,7 @@
                                                 <div class="comment__images">
                                                     <img alt="" src="images/comment/avatar.jpg">
                                                 </div>
-            
+        
                                                 <a href="#" class="comment__author"><span class="social-used fa fa-facebook"></span>'.$user.'</a>
                                                 <p class="comment__date">'.$ngaybinhluan.'</p>
                                                 <p class="comment__message">'.$noidung.'</p>

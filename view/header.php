@@ -71,7 +71,9 @@
                             </span>
                         </span>
                     </a>
-                    
+                    <style>
+                       
+                    </style>
                     <!-- Link navigation -->
                     <ul id="navigation">
                         <li>
@@ -155,6 +157,7 @@
                                     '.$_SESSION['user'].'
                                     </span>
                                     <div class="dropdown-menu">
+                                        <a href="index.php?act=lichsudatve&iduser='.$_SESSION['iduser'].'">Lịch sử đặt vé</a></br>
                                         <a href="index.php?act=thongtintk&iduser='.$_SESSION['iduser'].'">Thông tin tk</a></br>
                                         <a href="index.php?act=dangxuat">Đăng xuất</a></br>';
                                         if($_SESSION['role'] == 1){

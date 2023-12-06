@@ -1,6 +1,27 @@
 <br><br><br><br><br><br>
 <div class="container" style="width: 80%; margin: 0 auto;">
 <h3>QUẢN LÝ PHIM</h3>
+<style>
+    body {
+    background-color: #f0f0f0; /* Màu nền cho toàn bộ trang */
+  }
+
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    
+    padding: 20px;
+    text-align: center; /* Canh giữa nội dung trong container */
+  }
+
+  input[type="button"] {
+    background-color: #87CEEB; /* Màu xanh nhạt cho nút bấm */
+    color: #ffffff; /* Màu chữ cho nút bấm */
+    padding: 10px 20px; /* Điều chỉnh kích thước nút bấm */
+    border: none; /* Loại bỏ đường viền của nút bấm */
+    cursor: pointer; /* Biến đổi con trỏ khi di chuột vào nút */
+  }
+</style>
 <!-- <div class="inputdata">
                 <label for="theloai">theloai</label>
                 <select name="idtl" id="">

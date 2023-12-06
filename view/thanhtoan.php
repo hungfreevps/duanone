@@ -1,20 +1,5 @@
 <br><br><br><br><br>
-        <!-- Search bar -->
-        <div class="search-wrapper">
-            <div class="container container--add">
-                <form id='search-form' method='get' class="search">
-                    <input type="text" class="search__field" placeholder="Search">
-                    <select name="sorting_item" id="search-sort" class="search__sort" tabindex="0">
-                        <option value="1" selected='selected'>By title</option>
-                        <option value="2">By year</option>
-                        <option value="3">By producer</option>
-                        <option value="4">By title</option>
-                        <option value="5">By year</option>
-                    </select>
-                    <button type='submit' class="btn btn-md btn--danger search__button">Tìm Kiếm</button>
-                </form>
-            </div>
-        </div>
+    
         
         <!-- Main content -->
         <section class="container">
@@ -64,78 +49,33 @@
                             $result = rtrim($result, ', ');
                             echo $result;
                         ?></span></li>
-                        <li class="book-result__item">Tổng: <span class="book-result__count booking-cost">$<?php echo $kq['tong']; } ?></span></li>
+                        <li class="book-result__item">Tổng: <span name="tinhtien" class="book-result__count booking-cost">
+                            <?php
+                                $tongtien = $kq['tong'];
+                                $tongtien1 = number_format($tongtien, 0, ',', '.');
+                                echo $tongtien1; }
+                            ?>đ
+                            </span></li>
                     </ul>
-
-
-                    <?php
-                        // foreach ($arr as $key => $value) {
-    
-                        //     // Kiểm tra xem có phần tử tương ứng trong $_SESSION hay không
-                        //     if (isset($_SESSION[$key])) {
-                                
-                        //         // Lấy giá trị từ $_SESSION dựa trên tên phần tử
-                        //         $sessionValue = $_SESSION[$key];
-                                
-                        //         // In ra tên phần tử, giá trị từ mảng và giá trị từ $_SESSION
-                        //         echo "Element: $key, Array Value: $value, Session Value: $sessionValue<br>";
-                        //     } else {
-                        //         // Nếu không có phần tử tương ứng trong $_SESSION
-                        //        //  echo "Element: $key, Array Value: $value, Session Value not set<br>";
-                        //     }
-                        // }
-                    ?>
-
-
-
-
-
-
-
-
 
                     <h2 class="page-heading">Lựa chọn hình thức thanh toán</h2>
                     <div class="payment">
-                        <a href="#" class="payment__item">
-                            <img alt='' src="images/payment/pay1.png">
-                        </a>
-                        <a href="#" class="payment__item">
-                            <img alt='' src="images/payment/pay2.png">
-                        </a>
-                        <a href="#" class="payment__item">
-                            <img alt='' src="images/payment/pay3.png">
-                        </a>
-                        <a href="#" class="payment__item">
-                            <img alt='' src="images/payment/pay4.png">
-                        </a>
-                        <a href="#" class="payment__item">
-                            <img alt='' src="images/payment/pay5.png">
-                        </a>
-                        <a href="#" class="payment__item">
-                            <img alt='' src="images/payment/pay6.png">
-                        </a>
-                        <a href="#" class="payment__item">
-                            <img alt='' src="images/payment/pay7.png">
-                        </a>
-                    </div>
-
-                    <h2 class="page-heading">Thông tin liên lạc</h2>
-            
-                    <form id='contact-info' method='post' novalidate="" class="form contact-info">
-                        <div class="contact-info__field contact-info__field-mail">
-                            <input type='email' name='user-mail' placeholder='Email' class="form__mail">
+                        <form action="view/xulythanhtoanmomo-atm.php" method="post" enctype="application/x-www-form-urlencoded" >
+                                <input type="hidden" name="amount" value="<?= $tongtien;  ?>">
+                                <input type="hidden" name="idphim" value="<?= $idphim;  ?>">
+                                <input type="hidden" name="iduser" value="<?= $iduser;  ?>">
+                                <input type="submit" value="THANH TOAN MOMO ATM" name="momo" class="btn btn-danger">
+                            </form>
                         </div>
-                        <div class="contact-info__field contact-info__field-tel">
-                            <input type='tel' name='user-tel' placeholder='Số điện thoại' class="form__mail">
-                        </div>
-                    </form>
 
-                
+                            
+
+
                 </div>
                 
-                <div class="order">
+                <!-- <div class="order">
                     <a href="book-final.html" class="btn btn-md btn--warning btn--wide">Mua</a>
-                </div>
+                </div> -->
 
             </div>
 

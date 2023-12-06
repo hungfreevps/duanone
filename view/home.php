@@ -321,8 +321,11 @@ Start doing.'>
                 <div class="col-sm-10 col-sm-offset-1 movie-best__check">check all movies now playing</div>
             </div>
 
-            <div class="clearfix"></div>
-
+            <div class="clearfix"></div><br><br>
+                <form id='search-form' method='POST' class="search" action="index.php?act=hometk">
+                    <input type="text" class="search__field" placeholder="Từ khóa tìm kiếm" name="keyword" >
+                    <button type='submit' class="btn btn-md btn--danger search__button">Tìm Kiếm</button>
+                </form>
             <h2 id="target" class="page-heading heading--outcontainer">List Phim</h2>
 
             <div class="col-sm-12">
@@ -349,6 +352,8 @@ Start doing.'>
                                             <p class="movie__time">'.$giochieu.'</p>
                                             <p class="movie">'.$tacgia.'</p>
                                             <p class="movie">'.$quocgia.'</p>
+                                            <p class="movie">'.$theloai.'</p>
+
 
                                         
                                             

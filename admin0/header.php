@@ -60,6 +60,10 @@
 
                         <li>
                             <span class="sub-nav-toggle plus"></span>
+                            <a href="?act=danhmuc">Quản Lý User</a>
+                        </li>
+                        <li>
+                            <span class="sub-nav-toggle plus"></span>
                             <a href="?act=danhmuc">Quản Lý Danh Mục</a>
                         </li>
 

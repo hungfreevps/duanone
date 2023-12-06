@@ -175,7 +175,7 @@ if((isset($_GET['act'])) && ($_GET['act']!="")){
             break;
         case 'suasp':     
             if (isset($_GET['idphim']) && $_GET['idphim']>0){
-                $sanpham = loadone_sanpham($_GET['idphim']);
+                $sanpham = loadone_sanpham_admin($_GET['idphim']);
             }
             $listtacgia = loadtacgia();
             $listgiochieu = loadgiochieu();

@@ -1,18 +1,32 @@
 <?php
     function loadall_sanpham_home(){
         $sql="SELECT *,  quocgia.quocgia,giochieu.giochieu,tacgia.tacgia FROM phim 
-         JOIN quocgia ON quocgia.id=phim.id_quocgia 
-         JOIN giochieu ON giochieu.id=phim.id_giochieu 
-         JOIN tacgia ON tacgia.id=phim.id_tacgia;";
+        JOIN quocgia ON quocgia.id=phim.id_quocgia 
+        JOIN giochieu ON giochieu.id=phim.id_giochieu 
+        JOIN theloai ON theloai.id=phim.id_theloai 
+        JOIN tacgia ON tacgia.id=phim.id_tacgia
+        order by phim.idphim ASC;";
         // $sql="select * from phim where 1 order by id desc limit 0,9";
-        $listphim=pdo_query($sql);
+        $listphim = pdo_query($sql);
         return $listphim;
     }
+
+    function loadall_sanpham_home_timkiem($kyw){
+        $sql="SELECT *,  quocgia.quocgia,giochieu.giochieu,tacgia.tacgia FROM phim 
+        JOIN quocgia ON quocgia.id=phim.id_quocgia 
+        JOIN giochieu ON giochieu.id=phim.id_giochieu 
+        JOIN theloai ON theloai.id=phim.id_theloai 
+        JOIN tacgia ON tacgia.id=phim.id_tacgia
+        WHERE theloai.theloai = '$kyw'ORDER BY phim.idphim ASC;";
+        $listphim = pdo_query($sql);
+        return $listphim;
+    }
+
     function loadall_sanpham_top(){
         $sql="select * from phim
         where sao LIKE '5'
         order by sao desc limit 0,6;";
-        $listphim=pdo_query($sql);
+        $listphim = pdo_query($sql);
         return $listphim;
     }
     function loadone_sanpham($idphim){
@@ -115,8 +129,8 @@
 
 
    // lấy cột tenghe bảng lsghe
-    function laytenghe(){
-        $sql = "SELECT tenghe FROM lsghe";
+    function laytenghe($idphim){
+        $sql = "SELECT tenghe FROM lsghe WHERE idphim = $idphim";
         $kq = pdo_query($sql);
         return $kq;
     }
@@ -141,6 +155,29 @@
         $kq = pdo_query_one($sql);
         return $kq;
     }
+
+    function loadlsghe1($iduser){
+        $sql = "select *, phim.tenphim from lsghe 
+        INNER JOIN phim ON phim.idphim = lsghe.idphim
+        WHERE iduser = '$iduser'";
+        $kq = pdo_query($sql);
+        return $kq;
+    }
+
+    function load_momo($idphim, $iduser){
+        $sql = "select * from momo WHERE idphim = '$idphim' AND iduser = '$iduser'";
+        $kq = pdo_query_one($sql);
+        return $kq;
+    }
+
+    function loadall_lsghe($idphim, $iduser){
+        $sql = "SELECT *, phim.tenphim 
+        FROM `lsghe` 
+        INNER JOIN phim ON phim.idphim = lsghe.idphim WHERE idphim = '$idphim' AND iduser = '$iduser'";
+        $kq = pdo_query_one($sql);
+        return $kq;
+    }
+
 
     
     

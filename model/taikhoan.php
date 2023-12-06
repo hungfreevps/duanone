@@ -42,5 +42,11 @@
         return $taikhoan;
     
     }
+
+    function get_user($user){
+        $sql = "select * from taikhoan where user = '$user'";
+        $result = pdo_query_one($sql);
+        return $result;
+    }
     
 ?>

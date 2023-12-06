@@ -1,20 +1,4 @@
 <br><br><br><br><br>
-        <!-- Search bar -->
-        <div class="search-wrapper">
-            <div class="container container--add">
-                <form id='search-form' method='get' class="search">
-                    <input type="text" class="search__field" placeholder="Search">
-                    <select name="sorting_item" id="search-sort" class="search__sort" tabindex="0">
-                        <option value="1" selected='selected'>By title</option>
-                        <option value="2">By year</option>
-                        <option value="3">By producer</option>
-                        <option value="4">By title</option>
-                        <option value="5">By year</option>
-                    </select>
-                    <button type='submit' class="btn btn-md btn--danger search__button">Tìm Kiếm</button>
-                </form>
-            </div>
-        </div>
         
         <!-- Main content -->
 
@@ -60,12 +44,17 @@
                             <option value="4">Warsawa</option>
                             <option value="5">Kiev</option>
                         </select> -->
-                        Hà nội
+                        <span>Hà nội</span>
                     </form>
 
                     <div class="datepicker">
                       <span class="datepicker__marker"><i class="fa fa-calendar"></i>Ngày</span>
-                      <input type="date" id="datepicker" value='' class="datepicker__input" name="chonngay">
+                      <input type="date" id="datepicker" value='<?php
+                        $t=time();
+                        echo(date("Y-m-d",$t));
+                        ?>' class="datepicker__input" name="chonngay">
+
+
                     </div>
                 </div>
 
@@ -118,8 +107,14 @@
             <input type='text' name='choosen-city' class="choosen-city">
             <input type='text' name='choosen-cinema' class="choosen-cinema"> -->
 
-            <input type='text' name='choosen-date' class="choosen-date">
-            <input type='text' name='choosen-time' class="choosen-time">
+            <input type='text' name='choosen-date' class="choosen-date hidden-input">
+            <input type='text' name='choosen-time' class="choosen-time hidden-input">
+            <br>
+            <?php 
+            if(isset($thongbao) && ($thongbao!=" ")){
+                echo '<div style="color: orange; text-align: center;">' . $thongbao . '</div>';
+            }
+            ?><br><br>
             <button type="submit" name="submit" value="gui" class="bt--chonghe">Xác nhận</button>
 
             <div class="booking-pagination">
@@ -134,7 +129,9 @@
             </div>
         </form>
         <style>
-        
+        .hidden-input {
+            display: none;
+        }
         .bt--chonghe{
             display: block;
             margin: 0 auto;

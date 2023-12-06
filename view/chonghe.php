@@ -5,23 +5,6 @@
     // ini_set('display_errors', 0);
 ?>
         
-        <!-- Search bar -->
-        <div class="search-wrapper">
-            <div class="container container--add">
-                <form id='search-form' method='get' class="search">
-                    <input type="text" class="search__field" placeholder="Search">
-                    <select name="sorting_item" id="search-sort" class="search__sort" tabindex="0">
-                        <option value="1" selected='selected'>By title</option>
-                        <option value="2">By year</option>
-                        <option value="3">By producer</option>
-                        <option value="4">By title</option>
-                        <option value="5">By year</option>
-                    </select>
-                    <button type='submit' class="btn btn-md btn--danger search__button">Tìm Kiếm</button>
-                </form>
-            </div>
-        </div>
-        
         <!-- Main content -->
         <div class="place-form-area">
         <section class="container">
@@ -44,9 +27,9 @@
                 <div class="choose-sits__info choose-sits__info--first">
                     <ul>
                         <li class="sits-price marker--none"><strong>Giá</strong></li>
-                        <li class="sits-price sits-price--cheap">$10</li>
-                        <li class="sits-price sits-price--middle">$20</li>
-                        <li class="sits-price sits-price--expensive">$30</li>
+                        <li class="sits-price sits-price--cheap">25.000đ</li>
+                        <li class="sits-price sits-price--middle">30.000đ</li>
+                        <li class="sits-price sits-price--expensive">50.000đ</li>
                     </ul>
                 </div>
 
@@ -402,7 +385,7 @@
                                 
                             </div>
                             <div class="checked-result">
-                                $0
+                                0đ
                             </div>
                         </aside>
                         <footer class="sits__number">
@@ -479,7 +462,7 @@
                                 <span class="choosen-place"></span>
                             </div>
                             <div class="checked-result">
-                                $0
+                                0đ
                             </div>
                     </aside>
 
@@ -705,12 +688,12 @@
                     </a>
             </div>
         </form>
-        <!-- .hidden-input {
-            display: none;
-        } -->
         <div class="clearfix"></div>
-    <style>
         
+    <style>
+       .hidden-input {
+            display: none;
+        }
         .bt--chonghe{
             display: block;
             margin: 0 auto;
@@ -804,11 +787,11 @@
 
 </body>
 
+
 <!-- Mirrored from amovie.gozha.net/book2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 01 Nov 2023 12:59:07 GMT -->
 </html>
 
         <?php
-                $ketqua = laytenghe();
                 if ($ketqua) {
                     $tenGheArray = array_column($ketqua, 'tenghe');
                     $chuoiTenGhe = implode(',', $tenGheArray);
@@ -857,4 +840,5 @@
                 </script>
 
 
-            
+
+

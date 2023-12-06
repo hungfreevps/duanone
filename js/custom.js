@@ -619,20 +619,20 @@ $('.order__control-btn').click(function (e) {
                         switch(ticketPrice)
                             {
                             case '10':
-                              sum += 10;
+                              sum += 25000;
                               cheap += 1;
                               break;
                             case '20':
-                              sum += 20;
+                              sum += 30000;
                               middle += 1;
                               break;
                             case '30':
-                              sum += 30;
+                              sum += 50000;
                               expansive += 1;
                               break;
                         }
 
-                        $('.checked-result').text('$'+sum);
+                        $('.checked-result').text(sum+'đ');
                     }
                 }
 
@@ -644,20 +644,20 @@ $('.order__control-btn').click(function (e) {
                     switch(ticketPrice)
                             {
                             case '10':
-                              sum -= 10;
+                              sum -= 25000;
                               cheap -= 1;
                               break;
                             case '20':
-                              sum -= 20;
+                              sum -= 30000;
                               middle -= 1;
                               break;
                             case '30':
-                              sum -= 30;
+                              sum -= 50000;
                               expansive -= 1;
                               break;
                         }
 
-                    $('.checked-result').text('$'+sum)
+                    $('.checked-result').text(sum+'đ')
                 }
 
                 //data element init
@@ -769,17 +769,17 @@ $('.order__control-btn').click(function (e) {
             switch(ticketPrice)
                     {
                     case 10:
-                        sum += 10;
+                        sum += 25000;
                         break;
                     case 20:
-                        sum += 20;
+                        sum += 30000;
                         break;
                     case 30:
-                        sum += 30;
+                        sum += 50000;
                         break;
             }
 
-            $('.checked-result').text('$'+sum);
+            $('.checked-result').text(sum+'đ');
 
             
 
@@ -812,17 +812,17 @@ $('.order__control-btn').click(function (e) {
                     switch(ticketPrice)
                     {
                             case 10:
-                                sum -= 10;
+                                sum -= 25000;
                                 break;
                             case 20:
-                                sum -= 20;
+                                sum -= 30000;
                                 break;
                             case 30:
-                                sum -= 30;
+                                sum -= 50000;
                                 break;
                     }
 
-                    $('.checked-result').text('$'+sum);
+                    $('.checked-result').text(sum+'đ');
                 }
 
                 
