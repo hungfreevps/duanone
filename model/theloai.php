@@ -12,14 +12,17 @@ function themtheloai($tenloai){
 }
 
 function sualoai($idtl, $tenloai){
-    $sql= "UPDATE `theloai` SET `name`='$tenloai' WHERE `id` = $idtl";
-    $suatheloai = pdo_query_one($sql);
-    return $suatheloai;
+    $sql= "UPDATE `theloai` SET `theloai`='$tenloai' WHERE `id` =  $idtl";
+    pdo_execute($sql);
 }
 
-function loadonetheloai(){
-    $sql = "SELECT * FROM `theloai`";
+function loadonetheloai($idtl){
+    $sql = "SELECT * FROM `theloai` WHERE `id` = $idtl";
     $theloai = pdo_query_one($sql);
     return $theloai;
+}
+function xoatl($idtl){
+    $sql = "DELETE FROM `theloai` WHERE id = '$idtl'" ;
+    pdo_execute($sql);
 }
 ?>

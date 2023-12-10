@@ -619,20 +619,20 @@ function init_BookingTwo () {
                             switch(ticketPrice)
                                 {
                                 case '10':
-                                  sum += 10;
+                                  sum += 10000;
                                   cheap += 1;
                                   break;
                                 case '20':
-                                  sum += 20;
+                                  sum += 20000;
                                   middle += 1;
                                   break;
                                 case '30':
-                                  sum += 30;
+                                  sum += 30000;
                                   expansive += 1;
                                   break;
                             }
 
-                            $('.checked-result').text('$'+sum);
+                            $('.checked-result').text(sum+'đ');
                         }
                     }
 
@@ -644,20 +644,20 @@ function init_BookingTwo () {
                         switch(ticketPrice)
                                 {
                                 case '10':
-                                  sum -= 10;
+                                  sum -= 10000;
                                   cheap -= 1;
                                   break;
                                 case '20':
-                                  sum -= 20;
+                                  sum -= 20000;
                                   middle -= 1;
                                   break;
                                 case '30':
-                                  sum -= 30;
+                                  sum -= 30000;
                                   expansive -= 1;
                                   break;
                             }
 
-                        $('.checked-result').text('$'+sum)
+                        $('.checked-result').text(sum+'đ')
                     }
 
                     //data element init
@@ -769,17 +769,17 @@ function init_BookingTwo () {
                 switch(ticketPrice)
                         {
                         case 10:
-                            sum += 10;
+                            sum += 10000;
                             break;
                         case 20:
-                            sum += 20;
+                            sum += 20000;
                             break;
                         case 30:
-                            sum += 30;
+                            sum += 30000;
                             break;
                 }
 
-                $('.checked-result').text('$'+sum);
+                $('.checked-result').text(sum+'đ');
 
                 
 
@@ -812,17 +812,17 @@ function init_BookingTwo () {
                         switch(ticketPrice)
                         {
                                 case 10:
-                                    sum -= 10;
+                                    sum -= 10000;
                                     break;
-                                case 20:
-                                    sum -= 20;
+                                case 20000:
+                                    sum -= 20000;
                                     break;
-                                case 30:
-                                    sum -= 30;
+                                case 30000:
+                                    sum -= 30000;
                                     break;
                         }
 
-                        $('.checked-result').text('$'+sum);
+                        $('.checked-result').text(sum+'đ');
                     }
 
                     

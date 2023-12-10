@@ -9,7 +9,17 @@ if((isset($_GET['act'])) && ($_GET['act']!="")){
         case 'login':
             include "view/login.php";
             break;
-    }
+
+        case 'thanhtoan':
+            include "view/thanhtoan.php";
+            break;
+        case 'hoanthanh':
+            include "view/hoanthanh.php";
+            break;
+        case'momoatm':
+            include "view/momo.php";
+            break;
+    }   
 } else {
     include "view/home.php";
 }

@@ -18,17 +18,23 @@
 
                 foreach ($listtheloai as $theloai){
                     extract($theloai);
-                    $suasp = "index.php?act=suatheloai&idtl=$id";
+                    $suatl = "index.php?act=suatheloai&idtl=$id";
+                    $xoatl = "index.php?act=xoatheloai&idtl=$id";
+
                     echo "<tr>
                     <td>".$theloai."</td>
-                    <td><a href='".$suasp."'><input type='button' value='Sửa'> </a>   
-                    <a href='#'><input type='button'value='Xóa' onclick='return confirm(\'Bạn có chắc chắn muốn xóa\')' > </a></td>
-
+                    <td><a href='".$suatl."'><input type='button' value='Sửa'> </a>   
+                    <a href='".$xoatl."'><input type='button' value='Xóa' onclick='return confirm(\"Bạn có chắc chắn muốn xóa\")'></a></td>
                     ";
                 
                 }
             ?>
-                    <!-- // <input type='hidden' name='id' value='".$id."'> -->
+            <tr>
+                <?php
+                    $addtl = "index.php?act=themtheloai";
+                    echo "<td><a href='".$addtl."'><input type='button' value='Thêm'> </a> "  
+                ?>
+            </tr>
            </table>
         <!-- </div>   -->
                 <div class="table-giua"></div>
@@ -38,16 +44,26 @@
                 <th>QUỐC GIA</th>
             </tr>
             <?php
-            $suasp = "index.php?act=sualoai&id=";
+
                 foreach ($listquocgia as $qg){
                     extract($qg);
+                    $suaqg = "index.php?act=suaquocgia&idqg=$id";
+                    $xoaqg = "index.php?act=xoaquocgia&idqg=$id";
                     echo "<tr>
                     <td>".$quocgia."</td>
+                    <td><a href='".$suaqg."'><input type='button' value='Sửa'> </a>   
+                    <a href='".$xoaqg."'><input type='button' value='Xóa' onclick='return confirm(\"Bạn có chắc chắn muốn xóa\")'></a></td>
 
                     ";
                 
                 }
             ?>
+                        <tr>
+                <?php
+                    $addqg = "index.php?act=themquocgia";
+                    echo "<td><a href='".$addqg."'><input type='button' value='Thêm'> </a> "  
+                ?>
+            </tr>
            </table>
         <!-- </div>  -->
            <div class="table-giua"></div>
@@ -60,13 +76,23 @@
             $suasp = "index.php?act=sualoai&id=";
                 foreach ($listnamphathanh as $npt){
                     extract($npt);
+                    $suan = "index.php?act=suanam&idn=$id";
+                    $xoan = "index.php?act=xoanam&idn=$id";
                     echo "<tr>
                     <td>".$nam."</td>
+                    <td><a href='".$suan."'><input type='button' value='Sửa'> </a>   
+                    <a href='".$xoan."'><input type='button' value='Xóa' onclick='return confirm(\"Bạn có chắc chắn muốn xóa\")'></a></td>
 
                     ";
                 
                 }
             ?>
+                        <tr>
+                <?php
+                    $addn = "index.php?act=themnam";
+                    echo "<td><a href='".$addn."'><input type='button' value='Thêm'> </a> "  
+                ?>
+            </tr>
            </table>
         <!-- </div> -->
                 <!-- <div class="table-admin"> -->
@@ -78,13 +104,22 @@
             $suasp = "index.php?act=sualoai&id=";
                 foreach ($listgiochieu as $gio){
                     extract($gio);
+                    $suagc = "index.php?act=suagiochieu&idgc=$id";
+                    $xoagc = "index.php?act=xoagiochieu&idgc=$id";
                     echo "<tr>
                     <td>".$giochieu."</td>
-
+                    <td><a href='".$suagc."'><input type='button' value='Sửa'> </a>   
+                    <a href='".$xoagc."'><input type='button' value='Xóa' onclick='return confirm(\"Bạn có chắc chắn muốn xóa\")'></a></td>
                     ";
                 
                 }
             ?>
+                        <tr>
+                <?php
+                    $addgc = "index.php?act=themgiochieu";
+                    echo "<td><a href='".$addgc."'><input type='button' value='Thêm'> </a> "  
+                ?>
+            </tr>
            </table>
         <!-- </div> -->
                 <!-- <div class="table-admin"> -->
@@ -96,8 +131,12 @@
             $suasp = "index.php?act=sualoai&id=";
                 foreach ($listngaychieu as $ngaychieu){
                     extract($ngaychieu);
+                    $suanc = "index.php?act=suangaychieu&idnc=$id";
+                    $xoanc = "index.php?act=xoangaychieu&idnc=$id";
                     echo "<tr>
                     <td>".$ngaychieu."</td>
+                    <td><a href='".$suanc."'><input type='button' value='Sửa'> </a>   
+                    <a href='".$xoanc."'><input type='button' value='Xóa' onclick='return confirm(\"Bạn có chắc chắn muốn xóa\")'></a></td>
 
                     ";
                 
@@ -105,6 +144,12 @@
             ?>
             
            </table>
+           <tr>
+                <?php
+                    $addnc = "index.php?act=themngaychieu";
+                    echo "<td><a href='".$addnc."'><input type='button' value='Thêm'> </a> "  
+                ?>
+            </tr>
         <!-- </div> -->
                 <!-- <div class="table-admin"> -->
                 <table class="table-left-sp" border="1">
@@ -112,16 +157,24 @@
                 <th>TÁC GIẢ</th>
             </tr>
             <?php
-            $suasp = "index.php?act=sualoai&id=";
                 foreach ($listtacgia as $tacgia){
                     extract($tacgia);
+                    $suatg = "index.php?act=suatacgia&idtg=$id";
+                    $xoatg = "index.php?act=xoatacgia&idtg=$id";
                     echo "<tr>
                     <td>".$tacgia."</td>
-
+                    <td><a href='".$suatg."'><input type='button' value='Sửa'> </a>   
+                    <a href='".$xoatg."'><input type='button' value='Xóa' onclick='return confirm(\"Bạn có chắc chắn muốn xóa\")'></a></td>
                     ";
                 
                 }
             ?>
+                        <tr>
+                <?php
+                    $addtg = "index.php?act=themtacggia";
+                    echo "<td><a href='".$addtg."'><input type='button' value='Thêm'> </a> "  
+                ?>
+            </tr>
            </table>
         <!-- </div> -->
 
