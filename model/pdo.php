@@ -1,4 +1,5 @@
 <?php
+// ket noi database
 function pdo_get_connection(){
     $servername = "localhost";
     $username = "root";
@@ -63,4 +64,6 @@ function pdo_query_one($sql){
     }
 }
 pdo_get_connection();
+
+
 ?>

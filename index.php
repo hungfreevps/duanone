@@ -7,6 +7,7 @@
     include "model/namphathanh.php";
     include "model/giochieu.php";
     include "model/ngaychieu.php";
+    include "model/theloai.php";
     include "global.php";
 
     
@@ -117,12 +118,18 @@
                 if(isset($_POST['keyword']) &&  $_POST['keyword'] != " " ){
                     $kyw = $_POST['keyword'];
                     $phimhome = loadall_sanpham_home_timkiem($kyw);
-                }else{
-                    header("location: index.php");
                 }
+                if(isset($_GET['kyw'])){
+                    $kyw = $_GET['kyw'];
+                    $phimhome = loadall_sanpham_home_timkiem($kyw);
+                }
+            
                 include "view/home.php";
                 break;
-
+            case 'listphim':
+                $phimhome = loadall_listphim();
+                include "view/listphim.php";
+                break;
             case 'sanphamct': 
                 if(isset($_SESSION["iduser"])){
                     $iduser = $_SESSION["iduser"];
@@ -144,6 +151,7 @@
             case 'chongio':
                 if(!isset($_SESSION["iduser"])){
                     header("location: index.php?act=dangnhap");
+                    exit();
                 }
                 $idphim = $_GET["idphim"];
                 $iduser = $_GET["iduser"]; 

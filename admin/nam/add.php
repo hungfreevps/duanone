@@ -1,6 +1,6 @@
 <br><br><br><br><br><br>
-<div class="container">
-    <h3>NĂM PHÁT HÀNH</h3>
+<div class="">
+    <h3 style="text-align:center;">NĂM PHÁT HÀNH</h3><br><br>
     <div class="container-home">
         <form action="index.php?act=themnam" method="post">
             <label for="nam">CHỌN NĂM</label>

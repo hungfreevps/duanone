@@ -303,14 +303,20 @@ Start doing.'>
             <div class="movie-best">
                  <div class="col-sm-10 col-sm-offset-1 movie-best__rating">Top Yêu Thích</div>
                  <div class="col-sm-12 change--col">
-
+                <style>
+                    .cssanh{
+                        width: 100%;
+                        height: 100%;
+                    }
+                </style>
                  <?php
                     foreach ($phimtop as $phim) {
                         extract($phim);
                         $hinh=$img_path.$img;
+                        $link="index.php?act=sanphamct&idphim=".$idphim;
                         echo '<div class="movie-beta__item ">
-                                <img alt="" src="'.$hinh.'">
-                                <span class="best-rate">'.$sao.'</span>
+                                <img class="cssanh" alt="" src="'.$hinh.'">
+                                <a href="'.$link.'" class="movie-beta__link"><span class="best-rate">'.$sao.'</span></a>
                     </div>';
                     }
                  ?>
@@ -322,12 +328,25 @@ Start doing.'>
             </div>
 
             <div class="clearfix"></div><br><br>
-                <form id='search-form' method='POST' class="search" action="index.php?act=hometk">
-                    <input type="text" class="search__field" placeholder="Từ khóa tìm kiếm" name="keyword" >
+                <form id='search-form' method='POST' class="search" action="index.php?act=hometk" onsubmit="return validateForm()">
+                    <input type="text" class="search__field" placeholder="Từ khóa tìm kiếm (tìm theo thể loại)" name="keyword" id="keyword">
                     <button type='submit' class="btn btn-md btn--danger search__button">Tìm Kiếm</button>
                 </form>
             <h2 id="target" class="page-heading heading--outcontainer">List Phim</h2>
+            <script>
+                function validateForm() {
+                    var keyword = document.getElementById('keyword').value;
 
+                    if (keyword.trim() === "") {
+                        alert("Bạn chưa nhập từ khóa tìm kiếm!");
+                        return false;
+                    }
+
+                    // Nếu muốn thêm các điều kiện validate khác, bạn có thể thực hiện ở đây
+
+                    return true;
+                }
+            </script>
             <div class="col-sm-12">
                 <div class="row">
                     <div class="col-sm-8 col-md-9">
@@ -405,4 +424,6 @@ Start doing.'>
             </div>     
         </section>
         
-        <div class="clearfix"></div>
+        <div class="clearfix"></div><br>
+
+        

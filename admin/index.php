@@ -1,8 +1,10 @@
 <?php
 ob_start();
-include "../admin/header.php";
+include "../admin/left.php";
 include "../model/pdo.php";
 include "../model/sanpham.php";
+include "../model/taikhoan.php";
+include "../model/binhluan.php";
 include "../model/theloai.php";
 include "../model/quocgia.php";
 include "../model/tacgia.php";
@@ -11,11 +13,38 @@ include "../model/namphathanh.php";
 include "../model/giochieu.php";
 
 
+
 if((isset($_GET['act'])) && ($_GET['act']!="")){
     $act = $_GET['act'];
     switch ($act){
+        case 'taikhoan':
+            $kq = thongtinalltk();
+            include "../admin/taikhoan/list.php";
+            break;
+        case 'xoatk':
+            $iduser = $_GET["iduser"];
+            $kq = xoatk($iduser);
+            header("location: index.php?act=taikhoan");
+            include "../admin/taikhoan/list.php";
+            break;
+        case 'binhluan':
+            $kq = loadall_binhluan1();
+            include "../admin/binhluan/binhluan.php";
+            break;
+        case 'donhang':
+            $kq = loadall_lsghe_admin();
+            include "../admin/donhang/donhang.php";
+            break;
+        case 'pheduyet':
+            $kq = loadall_lsghe_admin();
+            $iduser = $_GET["iduser"];
+            $idphim = $_GET["idphim"];
+            update_trangthai($idphim, $iduser);
+            header("location: index.php?act=donhang");
+            include "../admin/donhang/donhang.php";
+            break;
         //gio chieu
-        case 'themgio':
+        case 'themgiochieu':
             if(isset($_POST['themmoi']) && $_POST['themmoi']){
                 $giochieu = $_POST['gio'];
                 if(empty($giochieu)){
@@ -28,7 +57,32 @@ if((isset($_GET['act'])) && ($_GET['act']!="")){
             }
             include "../admin/giochieu/add.php";
             break;
-
+        case 'updategiochieu':
+            if(isset($_POST['capnhat']) && $_POST['capnhat']){
+                $idgc = $_POST['idgc'];
+                $giochieu = $_POST['giochieu'];
+                suagiochieu($idgc,$giochieu);             
+                header('location: index.php?act=danhmuc');
+            }
+            $listgiochieu = loadgiochieu();
+            include "../admin/theloai/list.php";
+            break;
+        case 'suagiochieu':
+            if(isset($_GET['idgc']) && $_GET['idgc']>0){
+                $idgc = $_GET['idgc'];
+                $giochieu=loadonegiochieu($idgc);
+            }
+            $listgiochieu = loadgiochieu();
+            include "../admin/giochieu/update.php";
+            break;
+        
+        case 'xoagiochieu':
+            if(isset($_GET['idgc'])){
+                xoagc($_GET['idgc']);
+                header('location: index.php?act=danhmuc');
+                }
+            include "../admin/theloai/update.php";
+            break;  
         //nam phat hanh
         case 'themnam':
             if(isset($_POST['themmoi']) && $_POST['themmoi']){
@@ -44,7 +98,34 @@ if((isset($_GET['act'])) && ($_GET['act']!="")){
             }
             include "../admin/nam/add.php";
             break;          
+        case 'updatenam':
+            if(isset($_POST['capnhat']) && $_POST['capnhat']){
+                $idn = $_POST['idn'];
+                $nam = $_POST['nam'];
+                suanam($idn,$nam);             
+                header('location: index.php?act=danhmuc');
+            }
+            $listnamphathanh = loadnamphathanh();
+            include "../admin/theloai/list.php";
+            break;
+        case 'suanam':
+            if(isset($_GET['idn']) && $_GET['idn']>0){
+                $idn = $_GET['idn'];
+                $nam=loadonenam($idn);
+            }
+            $listnamphathanh = loadnamphathanh();
+            include "../admin/nam/update.php";
+            break;
+        
+        case 'xoanam':
+            if(isset($_GET['idn'])){
+                xoan ($_GET['idn']);
+                header('location: index.php?act=danhmuc');
+                }
+            include "../admin/theloai/update.php";
+            break;       
 
+    
         //ngay chieu
         case 'themngaychieu':
             if(isset($_POST['themmoi']) && $_POST['themmoi']){
@@ -59,9 +140,53 @@ if((isset($_GET['act'])) && ($_GET['act']!="")){
                 }
             }
             include "../admin/ngaychieu/add.php";
+            break;
+        case 'updatengaychieu':
+            if(isset($_POST['capnhat']) && $_POST['capnhat']){
+                $idnc = $_POST['idnc'];
+                $ngaychieu = $_POST['ngaychieu'];
+                suangaychieu($idnc,$ngaychieu);             
+                header('location: index.php?act=danhmuc');
+            }
+            $listngaychieu = loadngaychieu();
+            include "../admin/theloai/list.php";
+            break;
+        case 'suangaychieu':
+            if(isset($_GET['idnc']) && $_GET['idnc']>0){
+                $idnc = $_GET['idnc'];
+                $ngaychieulist=loadonengaychieu($idnc);
+            }
+            $listngaychieu = loadngaychieu();
+            include "../admin/ngaychieu/update.php";
+            break;
+        
+        case 'xoatheloai':
+            if(isset($_GET['idtl'])){
+                xoatl($_GET['idtl']);
+                header('location: index.php?act=danhmuc');
+                }
+            include "../admin/theloai/update.php";
             break;       
 
-        //tac ngay chieu
+        //tac gia
+        case 'updatetacgia':
+            if(isset($_POST['capnhat']) && $_POST['capnhat']){
+                $idtg = $_POST['idtg'];
+                $tentacgia = $_POST['tacgia'];
+                suatacgia($idtg,$tentacgia);             
+                header('location: index.php?act=danhmuc');
+            }
+            $listtacgia = loadtacgia();
+            include "../admin/theloai/list.php";
+            break;
+        case 'suatacgia':
+            if(isset($_GET['idtg']) && $_GET['idtg']>0){
+                $idtg = $_GET['idtg'];
+                $tacgia=loadonetacgia($idtg);
+            }
+            $listtacgia = loadtacgia();
+            include "../admin/tacgia/update.php";
+            break;
         case 'themtacgia':
             if(isset($_POST['themmoi']) && $_POST['themmoi']){
                 $tentacgia = $_POST['tacgia'];
@@ -76,8 +201,16 @@ if((isset($_GET['act'])) && ($_GET['act']!="")){
             }
             include "../admin/tacgia/add.php";
             break;
+        case 'xoatacgia':
+            if(isset($_GET['idtg'])){
+                xoatg($_GET['idtg']);
+                header('location: index.php?act=danhmuc');
+            }
+            include "../admin/tacgia/update.php";
+            break;
 
         //quoc gia
+        
         case 'themquocgia':
             if(isset($_POST['themmoi']) && $_POST['themmoi']){
                 $tenquocgia = $_POST['quocgia'];
@@ -92,25 +225,62 @@ if((isset($_GET['act'])) && ($_GET['act']!="")){
             }
             include "../admin/quocgia/add.php";
             break;
+        case 'updatequocgia':
+            if(isset($_POST['capnhat']) && $_POST['capnhat']){
+                $idqg = $_POST['idqg'];
+                $quocgia = $_POST['quocgia'];
+                suaquocgia($idqg,$quocgia);             
+                header('location: index.php?act=danhmuc');
+            }
+            $listquocgia = loadquocgia();
+            include "../admin/theloai/list.php";
+            break;
+        case 'suaquocgia':
+            if(isset($_GET['idqg']) && $_GET['idqg']>0){
+                $idqg = $_GET['idqg'];
+                $quocgia=loadonequocgia($idqg);
+            }
+            $listquocgia = loadquocgia();
+            include "../admin/quocgia/update.php";
+            break;
+        
+        case 'xoaquocgia':
+            if(isset($_GET['idqg'])){
+                xoaqg($_GET['idqg']);
+                header('location: index.php?act=danhmuc');
+                }
+            include "../admin/theloai/update.php";
+            break;
 
         
         
-            //the loai   
+        //the loai  
+        case 'updatetheloai':
+            if(isset($_POST['capnhat']) && $_POST['capnhat']){
+                $idtl = $_POST['idtl'];
+                $tenloai = $_POST['theloai'];
+                sualoai($idtl,$tenloai);             
+                header('location: index.php?act=danhmuc');
+            }
+            $listtheloai = loadtheloai();
+            include "../admin/theloai/list.php";
+            break;
         case 'suatheloai':
-            if (isset($_GET['idtl']) && $_GET['idtl']>0){
-                $theloai=loadonetheloai($_GET['idtl']);
+            if(isset($_GET['idtl']) && $_GET['idtl']>0){
+                $idtl = $_GET['idtl'];
+                $theloai=loadonetheloai($idtl);
             }
             $listtheloai = loadtheloai();
             include "../admin/theloai/update.php";
             break;
         
-        // case 'suatheloai':
-        //     if(isset($_GET['id'])&&($_GET['id'] >0)){
-        //         $id = $_GET['id'];
-        //         $suatheloai = sualoai($id);
-        //     }
-        //     include "../admin/theloai/update.php";
-        //     break;
+        case 'xoatheloai':
+            if(isset($_GET['idtl'])){
+                xoatl($_GET['idtl']);
+                header('location: index.php?act=danhmuc');
+             }
+            include "../admin/theloai/update.php";
+            break;
  
         case 'themtheloai':
             if(isset($_POST['themmoi']) && $_POST['themmoi']){
@@ -222,8 +392,6 @@ if((isset($_GET['act'])) && ($_GET['act']!="")){
                xoasp($_GET['idphim']);
                header('location: index.php?act=listsp');
             }
-
-
             break;
         case 'xoaspall':
             xoaallsp();
@@ -237,11 +405,14 @@ if((isset($_GET['act'])) && ($_GET['act']!="")){
         case "thongke":
             include "../admin/thongke.php";
             break;
+        case "backHome":
+            header("location: ../index.php");
+            break;
     }
 } else {
     $listsanpham = loadall_sanpham();
     include "../admin/home.php";
+    header("location: index.php?act=listsp");
 }
-include "../admin/footer.php";
 ob_end_flush();
 ?>

@@ -9,6 +9,14 @@
                 return $result;
     }
 
+    function loadall_binhluan1(){
+        $sql="SELECT binhluan.id, binhluan.noidung, taikhoan.user, phim.tenphim, binhluan.ngaybinhluan FROM binhluan
+                JOIN taikhoan ON binhluan.iduser = taikhoan.id
+                JOIN phim ON binhluan.idpro = phim.idphim";
+                $result = pdo_query($sql);
+                return $result;
+    }
+
     function load_binhluan($idpro = 0){
         $sql="select * from binhluan where 1";
         if($idpro > 0){

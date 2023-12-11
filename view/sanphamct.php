@@ -3,6 +3,7 @@
     // Ẩn thông báo lỗi
     error_reporting(0);
     ini_set('display_errors', 0);
+    // $iduser = @$_POST['iduser'];
 ?>
 <section class="container">
             <div class="col-sm-12">

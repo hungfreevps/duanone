@@ -1,9 +1,23 @@
 <?php
     function loadall_sanpham_home(){
-        $sql="SELECT *,  quocgia.quocgia,giochieu.giochieu,tacgia.tacgia FROM phim 
+        $sql="SELECT *,  quocgia.quocgia,giochieu.giochieu,tacgia.tacgia,theloai.theloai FROM phim 
         JOIN quocgia ON quocgia.id=phim.id_quocgia 
         JOIN giochieu ON giochieu.id=phim.id_giochieu 
         JOIN theloai ON theloai.id=phim.id_theloai 
+        JOIN tacgia ON tacgia.id=phim.id_tacgia
+        order by phim.idphim ASC 
+        limit 0,6;";
+        // $sql="select * from phim where 1 order by id desc limit 0,9";
+        $listphim = pdo_query($sql);
+        return $listphim;
+    }
+
+    function loadall_listphim(){
+        $sql="SELECT *,  quocgia.quocgia,giochieu.giochieu,tacgia.tacgia,theloai.theloai,namphathanh.nam FROM phim 
+        JOIN quocgia ON quocgia.id=phim.id_quocgia 
+        JOIN giochieu ON giochieu.id=phim.id_giochieu 
+        JOIN theloai ON theloai.id=phim.id_theloai 
+        JOIN namphathanh ON namphathanh.id=phim.id_namphathanh
         JOIN tacgia ON tacgia.id=phim.id_tacgia
         order by phim.idphim ASC;";
         // $sql="select * from phim where 1 order by id desc limit 0,9";
@@ -164,6 +178,15 @@
         return $kq;
     }
 
+    function loadall_lsghe_admin(){
+        $sql = "SELECT lsghe.*, phim.tenphim, taikhoan.user
+            FROM lsghe 
+            INNER JOIN phim ON phim.idphim = lsghe.idphim
+            INNER JOIN taikhoan ON taikhoan.id = lsghe.iduser";
+        $kq = pdo_query($sql);
+        return $kq;
+    }
+
     function load_momo($idphim, $iduser){
         $sql = "select * from momo WHERE idphim = '$idphim' AND iduser = '$iduser'";
         $kq = pdo_query_one($sql);
@@ -177,6 +200,16 @@
         $kq = pdo_query_one($sql);
         return $kq;
     }
+
+    function update_trangthai($idphim, $iduser){
+        $sql = "UPDATE lsghe
+        SET trangthai = '1'
+        WHERE iduser = $iduser AND idphim = $idphim";
+        $kq = pdo_query($sql);
+        return $kq;
+    }
+
+
 
 
     

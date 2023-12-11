@@ -72,7 +72,12 @@
                         </span>
                     </a>
                     <style>
-                       
+                        #navigation{
+                            padding-right: 150px;
+                        }
+                       .sub-nav-toggle{
+                            
+                       }
                     </style>
                     <!-- Link navigation -->
                     <ul id="navigation">
@@ -83,7 +88,16 @@
 
                         <li>
                             <span class="sub-nav-toggle plus"></span>
-                            <a href="#">Đặc Trưng</a>
+                            <a href="">Thể loại</a>
+                            <ul class="auth__function">
+                            <?php 
+                                $kq = loadtheloai();
+                                foreach($kq as $value){
+                                    extract($value);
+                            ?>
+                                <li><a href="index.php?act=hometk&kyw=<?php echo $theloai; ?>"><?php echo $theloai; ?></a></li>
+                                <?php } ?>
+                            </ul>
                         </li>
 
                         <!-- <li>
@@ -93,14 +107,14 @@
 
                         <li>
                             <span class="sub-nav-toggle plus"></span>
-                            <a href="#">Phòng Trưng Bày</a>
+                            <a href="index.php?act=listphim">Danh sách phim</a>
                         </li>
 
                         <li>
                             <span class="sub-nav-toggle plus"></span>
                             <a href="#">Mới</a>
                         </li>
-                        
+
 
                         <!-- <li>
                             <span class="sub-nav-toggle plus"></span>

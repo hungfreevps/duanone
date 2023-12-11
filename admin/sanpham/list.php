@@ -1,6 +1,15 @@
-<br><br><br><br><br><br>
+<div class="right">
 <div class="container" style="width: 80%; margin: 0 auto;">
-<h3>QUẢN LÝ PHIM</h3>
+<div class="container-content">
+    <h3 class="head-action">QUẢN LÍ PHIM</h3>
+    <style>
+    .table-left-sp td{
+        height: 100px;
+    }
+    .head-action{
+        font-size: 26px;
+    }
+</style>
 <!-- <div class="inputdata">
                 <label for="theloai">theloai</label>
                 <select name="idtl" id="">
@@ -15,12 +24,12 @@
                     ?>
                 </select>
             </div> -->
-<div class="container-home">
+    <div class="container-home">
 
 
-<table class="table-left-sp" border="1">
+        <table class="table-left-sp" border="1">
             <tr class="">
-
+                <th>#</th>
                 <th>TÊN</th>
                 <th>NGÀY CHIẾU</th>
                 <th>GIỜ</th>
@@ -32,9 +41,11 @@
                 <th>QUỐC GIA</th>
                 <th>THỜI LƯỢNG</th>
                 <th>HÌNH</th>
-                <th></th>
+                <th><a href="?act=themsp"> <input type="button" value="Thêm"></a></th>
+                <th><a href="?act=xoaspall"><input type="button" value="Xóa tất cả" onclick="return confirm(\'Bạn có chắc chắn muốn xóa tất cả không? (Xóa hết toàn bộ dữ liệu và không thể khôi phục))\'" > </a></th>
             </tr>
             <?php
+                $i = 1;
                 foreach ($listsanpham as $phim){
                     extract($phim);
                     $suasp = "index.php?act=suasp&idphim=".$idphim;
@@ -48,6 +59,7 @@
 
                     echo '<tr>
 
+                    <td>'.$i.'</td>
                     <td>'.$tenphim.'</td>
                     <td>'.$ngaychieu.'</td>
                     <td>'.$giochieu.'</td>
@@ -62,12 +74,16 @@
                     <td><a href="'.$suasp.'"><input type="button" value="Sửa"></a>   
                     <td><a href="'.$xoasp.'"><input type="button" value="Xóa" onclick="return confirm(\'Bạn có chắc chắn muốn xóa\')" > </a></td>
                 </tr>';
+                $i++;
                 }
             ?>
            </table>
 </div>
-<div>           <a href="?act=themsp"> <input type="button" value="Them"></a>
-           <a href="?act=xoaspall"><input type="button" value="Xóa tat ca" onclick="return confirm(\'Bạn có chắc chắn muốn xóa tất cả không? (Xóa hết toàn bộ dữ liệu và không thể khôi phục))\')" > </a>
+</div>
 
-</div>
-</div>
+</div>    
+    </div>
+    <script src="https://kit.fontawesome.com/b8d3f92d8d.js" crossorigin="anonymous"></script>
+</body>
+</html>
+

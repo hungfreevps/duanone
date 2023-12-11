@@ -20,16 +20,19 @@
                     <td>#</td>
                     <td>Tên phim</td>
                     <td>Số vé</td>
-                    <td>Ngày đặt</td>
+                    <td>Ngày xem</td>
                     <td>Thời gian xem</td>
                     <td>Trạng thái</td>
-                    <td>Xóa</td>
                 </tr>
                 <?php
                     $i = 1;
                     foreach($kq as $value){
                         extract($value);
-
+                        if($trangthai == 0){
+                            $trangthai1 = "Chờ xử lí";
+                        }else{
+                            $trangthai1 = "Đã thanh toán";
+                        }
                         echo '
                             <tr>
                                 <td>'.$i.'</td>
@@ -37,8 +40,7 @@
                                 <td>'.($ghe1 + $ghe2 + $ghe3).'</td>
                                 <td>'.$ngaychieu.'</td>
                                 <td>'.$giochieu.'</td>
-                                <td>xịt</td>
-                                <td><a href="">xóa</a></td>
+                                <td>'.$trangthai1.'</td>
                             </tr>';
                         $i++;
                     }

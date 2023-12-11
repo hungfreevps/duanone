@@ -35,8 +35,20 @@
         return $taikhoan;
     }
 
-    function update_taikhoan($idtk,$user,$email,$sdt,$pass){
-        $sql=  "UPDATE `taikhoan` SET `user` = '{$user}', `email` = '{$email}', `sdt` = '{$sdt}', `pass` = '{$pass}' WHERE `taikhoan`.`id` = $idtk";
+    function thongtinalltk(){
+        $sql="select * from taikhoan";
+        $taikhoan = pdo_query($sql);
+        return $taikhoan;
+    }
+
+    function xoatk($iduser){
+        $sql = "DELETE FROM taikhoan WHERE id = $iduser";
+        pdo_execute($sql);
+    }
+
+
+    function update_taikhoan($iduser, $user, $email, $sdt, $pass){
+        $sql=  "UPDATE `taikhoan` SET `user` = '{$user}', `email` = '{$email}', `sdt` = '{$sdt}', `pass` = '{$pass}' WHERE `taikhoan`.`id` = $iduser";
         
         $taikhoan = pdo_query_one($sql);
         return $taikhoan;

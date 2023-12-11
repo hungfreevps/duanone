@@ -1,8 +1,8 @@
-<br><br><br><br><br><br>
-<div class="container">
-    <h3>GIỜ CHIẾU</h3>
+
+<div class="">
+    <h3 style="text-align:center;">GIỜ CHIẾU</h3><br><br>
     <div class="container-home">
-        <form action="index.php?act=themgio" method="post">
+        <form action="index.php?act=themgiochieu" method="post">
             <label for="gio">CHỌN GIỜ</label>
             <input type="time" name="gio" >
 

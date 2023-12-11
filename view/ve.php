@@ -37,7 +37,11 @@ if(isset($_GET['partnerCode'])){
                                 <span class="ticket__item ticket__date"><?php echo $kq1["ngaychieu"]; ?></span>
                                 <span class="ticket__item ticket__time"><?php echo $kq1["giochieu"]; ?></span>
                                 <span class="ticket__item">Rạp chiếu phim: <span class="ticket__hall">Beta Cineplex Mỹ Đình</span></span>
-                                <span class="ticket__item ticket__price">Giá: <strong class="ticket__cost"><?php echo $kq1["tong"]; ?>đ</strong></span>
+                                <span class="ticket__item ticket__price">Giá: <strong class="ticket__cost">
+                                    <?php $tongtien1 = number_format($kq1["tong"], 0, ',', '.');
+                                        echo $tongtien1;                                   
+                                    ?>đ</strong>
+                                </span>
                             </div>
                             <?php
                                 $d = $kq1["tenghe"];

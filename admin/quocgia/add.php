@@ -1,7 +1,7 @@
-<br><br><br><br><br><br>
-<div class="container">
-    <h3>THÊM QUỐC GIA</h3>
-    <div class="container-home">
+
+<div class="">
+    <h3 style="text-align:center;">THÊM QUỐC GIA</h3><br><br>
+    <div class="">
         <form action="index.php?act=themquocgia" method="post">
             <label for="quocgia">TÊN QUỐC GIA</label>
             <input type="text" name="quocgia" id="quocgia">

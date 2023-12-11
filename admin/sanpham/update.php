@@ -1,4 +1,50 @@
-<br><br><br><br><br><br>
+<div class="right">
+    <style>
+    .container-home {
+    width: 70%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.inputdata {
+    margin-bottom: 4px;
+}
+
+label {
+    display: block;
+    margin-bottom: 3px;
+    font-weight: bold;
+}
+
+input[type="text"],
+select,
+input[type="file"] {
+    width: 100%;
+    padding: 2px;
+    box-sizing: border-box;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+input[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+    border-radius: 5px;
+}
+
+
+
+    </style>
 <?php
 if(is_array($sanpham)){
     extract($sanpham);
@@ -128,5 +174,12 @@ if(is_file($duongdan)){
             ?>
     </div>
 </div>
+    </div>
+    <script src="https://kit.fontawesome.com/b8d3f92d8d.js" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
 
 

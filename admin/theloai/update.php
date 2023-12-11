@@ -2,28 +2,19 @@
 <?php
 if(is_array($theloai)){
     extract($theloai);
-    print_r($theloai);
 }
 ?>
-<div class="container">
-    <h3>THÊM THỂ LOẠI</h3>
+<div>
+    <h3 style="text-align: center;" >THÊM THỂ LOẠI</h3><br><br>
     <div class="container-home">
-        <form action="index.php?act=" method="post">
+        <form action="index.php?act=updatetheloai&idtl=<?=$id ?>" method="post">
         <div class="inputdata">
-                <label for="">Thể loại</label>
-                <select name="idtl" id="">
-                <?php
-                foreach ($listtheloai as $key=>$value){
-                    if($id==$value['idtl']){
-                        echo "<option value=".$value['idtl']." selected>".$value['theloai']."</option>";
-                    } else {
-                        echo "<option value=".$value['idtl'].">".$value['theloai']."</option>";
-                    }
-                }
-                ?>
-                </select>
+                <label for="tenphim">THỂ LOẠI</label>
+                <input type="text" name="theloai" value="<?=$theloai ?>">
                 <input type="submit" value="Them" name="capnhat">
             </div>
+
+            <input type="hidden" name="idtl" value="<?=$id ?>">
             
 
             <?php 
