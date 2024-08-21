@@ -60,7 +60,7 @@
 
                         <li>
                             <span class="sub-nav-toggle plus"></span>
-                            <a href="#">Quản Lý Thể Loại</a>
+                            <a href="?act=danhmuc">Quản Lý Danh Mục</a>
                         </li>
 
                         <li>
