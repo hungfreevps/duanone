@@ -21,46 +21,53 @@ if(isset($_GET['partnerCode'])){
 ?>
 <br><br>
 <section class="container">
-            <div class="order-container">
-                <div class="order">
-                    <img class="order__images" alt='' src="images/tickets.png">
-                    <p class="order__title">Cản ơn <br><span class="order__descript">Bạn đã mua vé thành công</span></p>
+    <div class="order-container">
+        <div class="order">
+            <img class="order__images" alt='' src="images/tickets.png">
+            <p class="order__title">Cản ơn <br><span class="order__descript">Bạn đã mua vé thành công</span></p>
+        </div>
+
+        <div class="ticket">
+            <div class="ticket-position">
+                <div class="ticket__indecator indecator--pre">
+                    <div class="indecator-text pre--text">online ticket</div>
                 </div>
+                <div class="ticket__inner">
 
-                <div class="ticket">
-                    <div class="ticket-position">
-                        <div class="ticket__indecator indecator--pre"><div class="indecator-text pre--text">online ticket</div> </div>
-                        <div class="ticket__inner">
-
-                            <div class="ticket-secondary">
-                                <span class="ticket__item">Vé: <strong class="ticket__number"><?php echo $orderId; ?></strong></span>
-                                <span class="ticket__item ticket__date"><?php echo $kq1["ngaychieu"]; ?></span>
-                                <span class="ticket__item ticket__time"><?php echo $kq1["giochieu"]; ?></span>
-                                <span class="ticket__item">Rạp chiếu phim: <span class="ticket__hall">Beta Cineplex Mỹ Đình</span></span>
-                                <span class="ticket__item ticket__price">Giá: <strong class="ticket__cost">
-                                    <?php $tongtien1 = number_format($kq1["tong"], 0, ',', '.');
+                    <div class="ticket-secondary">
+                        <span class="ticket__item">Vé: <strong
+                                class="ticket__number"><?php echo $orderId; ?></strong></span>
+                        <span class="ticket__item ticket__date"><?php echo $kq1["ngaychieu"]; ?></span>
+                        <span class="ticket__item ticket__time"><?php echo $kq1["giochieu"]; ?></span>
+                        <span class="ticket__item">Rạp chiếu phim: <span class="ticket__hall">Beta Cineplex Mỹ
+                                Đình</span></span>
+                        <span class="ticket__item ticket__price">Giá: <strong class="ticket__cost">
+                                <?php $tongtien1 = number_format($kq1["tong"], 0, ',', '.');
                                         echo $tongtien1;                                   
                                     ?>đ</strong>
-                                </span>
-                            </div>
-                            <?php
+                        </span>
+                    </div>
+                    <?php
                                 $d = $kq1["tenghe"];
                                 $arr = explode(', ', $d);
                                 $arr = array_unique($arr);
                                 $result = implode(', ', $arr);
                                 $result = rtrim($result, ', ');
                             ?>
-                            <div class="ticket-primery">
-                                <span class="ticket__item ticket__item--primery ticket__film">Film<br><strong class="ticket__movie"><?php echo $kq2["tenphim"]; ?></strong></span>
-                                <span class="ticket__item ticket__item--primery">Ghế: <span class="ticket__place"><?php echo $result; ?></span></span>
-                            </div>
-                        </div>
-                        <div class="ticket__indecator indecator--post"><div class="indecator-text post--text">online ticket</div></div>
+                    <div class="ticket-primery">
+                        <span class="ticket__item ticket__item--primery ticket__film">Film<br><strong
+                                class="ticket__movie"><?php echo $kq2["tenphim"]; ?></strong></span>
+                        <span class="ticket__item ticket__item--primery">Ghế: <span
+                                class="ticket__place"><?php echo $result; ?></span></span>
                     </div>
                 </div>
-
+                <div class="ticket__indecator indecator--post">
+                    <div class="indecator-text post--text">online ticket</div>
+                </div>
             </div>
-        </section>
-        
-        <div class="clearfix"></div>
-        
+        </div>
+
+    </div>
+</section>
+
+<div class="clearfix"></div>

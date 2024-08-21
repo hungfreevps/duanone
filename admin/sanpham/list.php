@@ -1,16 +1,17 @@
 <div class="right">
-<div class="container" style="width: 80%; margin: 0 auto;">
-<div class="container-content">
-    <h3 class="head-action">QUẢN LÍ PHIM</h3>
-    <style>
-    .table-left-sp td{
-        height: 100px;
-    }
-    .head-action{
-        font-size: 26px;
-    }
-</style>
-<!-- <div class="inputdata">
+    <div class="container" style="width: 80%; margin: 0 auto;">
+        <div class="container-content">
+            <h3 class="head-action">QUẢN LÍ PHIM</h3>
+            <style>
+            .table-left-sp td {
+                height: 100px;
+            }
+
+            .head-action {
+                font-size: 26px;
+            }
+            </style>
+            <!-- <div class="inputdata">
                 <label for="theloai">theloai</label>
                 <select name="idtl" id="">
                     <?php
@@ -24,27 +25,29 @@
                     ?>
                 </select>
             </div> -->
-    <div class="container-home">
+            <div class="container-home">
 
 
-        <table class="table-left-sp" border="1">
-            <tr class="">
-                <th>#</th>
-                <th>TÊN</th>
-                <th>NGÀY CHIẾU</th>
-                <th>GIỜ</th>
-                <th>NĂM PHÁT HÀNH</th>
-                <th>THỂ LOẠI</th>
+                <table class="table-left-sp" border="1">
+                    <tr class="">
+                        <th>#</th>
+                        <th>TÊN</th>
+                        <th>NGÀY CHIẾU</th>
+                        <th>GIỜ</th>
+                        <th>NĂM PHÁT HÀNH</th>
+                        <th>THỂ LOẠI</th>
 
-                <th>TÁC GIẢ</th>
-                <th>MÔ TẢ</th>
-                <th>QUỐC GIA</th>
-                <th>THỜI LƯỢNG</th>
-                <th>HÌNH</th>
-                <th><a href="?act=themsp"> <input type="button" value="Thêm"></a></th>
-                <th><a href="?act=xoaspall"><input type="button" value="Xóa tất cả" onclick="return confirm(\'Bạn có chắc chắn muốn xóa tất cả không? (Xóa hết toàn bộ dữ liệu và không thể khôi phục))\'" > </a></th>
-            </tr>
-            <?php
+                        <th>TÁC GIẢ</th>
+                        <th>MÔ TẢ</th>
+                        <th>QUỐC GIA</th>
+                        <th>THỜI LƯỢNG</th>
+                        <th>HÌNH</th>
+                        <th><a href="?act=themsp"> <input type="button" value="Thêm"></a></th>
+                        <th><a href="?act=xoaspall"><input type="button" value="Xóa tất cả"
+                                    onclick="return confirm(\'Bạn có chắc chắn muốn xóa tất cả không? (Xóa hết toàn bộ dữ liệu và không thể khôi phục))\'">
+                            </a></th>
+                    </tr>
+                    <?php
                 $i = 1;
                 foreach ($listsanpham as $phim){
                     extract($phim);
@@ -77,13 +80,13 @@
                 $i++;
                 }
             ?>
-           </table>
-</div>
-</div>
+                </table>
+            </div>
+        </div>
 
-</div>    
     </div>
-    <script src="https://kit.fontawesome.com/b8d3f92d8d.js" crossorigin="anonymous"></script>
+</div>
+<script src="https://kit.fontawesome.com/b8d3f92d8d.js" crossorigin="anonymous"></script>
 </body>
-</html>
 
+</html>
